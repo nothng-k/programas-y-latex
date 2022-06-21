@@ -70,21 +70,14 @@ price_control<-function(p,k=400,m=1000){
     (p<m)*exp(-p/k)
   )
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 price_control<-function(p,k=400,m=1000){
   return(0+
            (p<m)*exp(-p/k)*((p/-m)^2)
   )
 }
     
-=======
->>>>>>> parent of 4e94971 (cambios)
-=======
->>>>>>> parent of 4e94971 (cambios)
-=======
->>>>>>> parent of 4e94971 (cambios)
+
 
 m_ps<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=0.03){
   return(
