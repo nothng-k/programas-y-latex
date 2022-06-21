@@ -67,12 +67,12 @@ dicotomic_function2<-function(c_1,c_2,n_1,n_2,N){
 
 price_control<-function(p,k=400,m=1000){
   return(0+
-           (p<m)*((p/k)^2+m)
+           (p<m)*((p-m)^2)
   )
 }
 price_control<-function(p,k=400,m=1000){
   return(0+
-           (p<m)*exp(-p/k)*((p/-m)^2)
+           (p<m)*exp(-p/k)*((p-m)^2)
   )
 }
 
@@ -85,15 +85,15 @@ m_ps<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=0.03
 graficador(1,10,60,"m_ps")
 
 V_ps<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=400){
-  m_ps(p_1,p_2,c_1=c_1,c_2=c_2,k=k,n_1 = n_1,n_2=n_2,N=N)*(p_1-300)
+  m_ps(p_1,p_2,c_1=c_1,c_2=c_2,k=k,n_1 = n_1,n_2=n_2,N=N)*(p_1-100)
 }
 graficador(1,1000,60,"V_ps")
 k=1000
-p=200
-numeros=numeric(k)
+P=10000
+numeros=numeric(P)
 a=0
 numero =0
-for( i in 1:k){
+for( i in 1:P){
   for( j in 1:k){
     if (a < V_ps(j,i)){
       numero=j
@@ -104,5 +104,5 @@ for( i in 1:k){
 }
 numeros
 plot(numeros)
-abline(1,1, col = 2)
+
 
