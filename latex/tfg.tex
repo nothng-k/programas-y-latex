@@ -1,70 +1,69 @@
-\documentclass[12pt]{article}
- 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[frenchb,spanish]{babel}
-\usepackage{setspace}
-\usepackage{geometry}
-\usepackage{listings}
-\usepackage{verbatim}
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage[squaren,Gray]{SIunits}
-\usepackage{amsfonts}
-\usepackage{bm}
-\usepackage{amsmath}
-\usepackage{float}
-\usepackage{titling}
-\usepackage{color}
-\usepackage{fix-cm}
-\newcommand{\bigsize}{\fontsize{35pt}{20pt}\selectfont}
-\usepackage{multicol}
-\setlength{\parindent}{0pt} 
-\usepackage{multicol}
-\usepackage{verbatimbox,lipsum}
+\documentclass[11pt, a4paper]{article} %tamaño mínimo de letra 11pto.
 
-
-\let\begintitlepage\relax
-
-\geometry{hmargin=2.5cm,vmargin=2.5cm}
-
-
+\usepackage{graphicx} 
+\usepackage[spanish]{babel} %Español 
+\usepackage[utf8]{inputenc} %Para poder poner tildes
+\usepackage{vmargin} %Para modificar los márgenes
+\setmargins{2.5cm}{1.5cm}{16.5cm}{23.42cm}{10pt}{1cm}{0pt}{2cm}
+%margen izquierdo, superior, anchura del texto, altura del texto, altura de los encabezados, espacio entre el texto y los encabezados, altura del pie de página, espacio entre el texto y el pie de página
 
 \begin{document}
-
+%%%%%%Portada%%%%%%%
 \begin{titlepage}
-    \begin{center}
-       \vspace*{0.5cm}
-       
-       \Large
-       \rule{\linewidth}{1pt} \bsc{CONCURSO DE MODELIZACIÓN MATEMÁTICA} \\
-    
-       
-       \large
-       \vspace*{0.5cm}
-       Identificador del grupo : CMM2021 - 693968\\
-       \vspace*{0.5cm}
-       UCM - Facultad de Ciencias Matemáticas - 2021 \\ 
-       \rule{\linewidth}{1pt}
-       
+\centering
+{ \bfseries \Large UNIVERSIDAD COMPLUTENSE DE MADRID}
+\vspace{0.5cm}
 
-   \end{center}
-   
+{\bfseries  \Large FACULTAD DE CIENCIAS MATEMÁTICAS} 
+\vspace{1cm}
+
+{\large DEPARTAMENTO DE ESTADÍSTICA E INVESTIGACIÓN OPERATIVA}
+\vspace{0.8cm}
+
+%%%%Logo Complutense%%%%%
+{\includegraphics[width=0.35\textwidth]{logo_UCM}} %Para ajustar la portada a una sola página se puede reducir el tamaño del logo
+\vspace{0.8cm}
+
+{\bfseries \Large TRABAJO DE FIN DE GRADO}
+\vspace{2cm}
+
+{\Large Código de TFG:  [C\'odigo TFG] } \vspace{5mm}
+
+{\Large Teoría de juegos: En búsqueda de estabilidad(y robustez).}\vspace{5mm}
+
+{\Large [Título de TFG en ingl\'es (el que aparece en la FICHA)]}\vspace{5mm}
+
+{\Large Supervisor/es: Jorge González Ortega }\vspace{20mm} 
+
+{\bfseries \LARGE Manuel Grau Roldán}\vspace{5mm} 
+
+{\large Grado en Matemáticas y Estadística.}\vspace{5mm} 
+
+{\large Curso acad\'emico 2021-22}\vspace{5mm} 
+
+{\large Convocatoria Septiembre de 2022}\vspace{5mm} 
+
 \end{titlepage}
 \newpage
-\section{Planteamiento general}
-\textbf{1. Suponiendo que no hay obstáculos, probar que la conexión óptima entre las casas, así como la de la o las que correspondan con el enganche, será en línea recta y que no hay cruces entre los cables.} \\
-Para empezar, vamos a suponer que el conjunto de casas y el punto de enganche conforman una red de puntos en el plano que llamaremos $S$. Al número de nodos de la red lo llamaremos $n$, y reservaremos $m$ para el número de aristas. \\
-Para minimizar la longitud total de las aristas del grafo, podemos fijarnos en dos aspectos:
-\begin{itemize}
-    \item Reducir el número de aristas empleadas en el grafo al mínimo. 
-    \item Utilizar las aristas con menor longitud. 
-\end{itemize}
+
+{\bfseries \large [Título extendido del TFG (si procede)] }\vspace{10mm} 
+
+{\bfseries \large Resumen:} \vspace{5mm}
+
+Esto es una prueba para probar el formato del Resumen. Esto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del ResumenEsto es una prueba para probar el formato del Resumen.
+\vspace{1cm}
+
+{\bfseries \large Abstract: }\vspace{5mm} 
+
+This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.This is a test to prove the abstract's layout.
+\vspace{1cm}
+
+[\Large\textbf{Nota}: el título extendido (si procede), el resumen y el abstract deben estar en una misma página y su extensión no debe superar una página. Tamaño mínimo 11pto ]\\
+
+{\Large\textbf{Extensión máxima 20 páginas sin contar portada ni resumen (sí se incluye índice, introducción, conclusiones y bibliografía}}
+\newpage
+
+%%Inicio: 
 
 
 \end{document}
-
-
-
-
-
