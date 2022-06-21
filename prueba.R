@@ -71,6 +71,7 @@ price_control<-function(p,k=400,m=1000){
   )
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 price_control<-function(p,k=400,m=1000){
   return(0+
@@ -79,6 +80,8 @@ price_control<-function(p,k=400,m=1000){
 }
     
 
+=======
+>>>>>>> parent of 4e94971 (cambios)
 =======
 >>>>>>> parent of 4e94971 (cambios)
 
