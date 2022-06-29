@@ -1,4 +1,10 @@
 
+
+"""
+FUNCION PARA GRAFICAR
+"""
+
+
 graficador<-function(a,b,l,f){
   x <- seq(a, b, length.out = l)
   y <- x
@@ -11,119 +17,106 @@ graficador<-function(a,b,l,f){
   ) -> res
 }
 
-
-price_function<-function(p_1,p_2,k=1){
-  return(exp((p_2-p_1)*k))
-}
-
-price_function<-function(p_1,p_2,k=200){
-  return(1-(
-    exp(p_1/k)/
-      (exp(p_1/k)+exp(p_2/k))
-  )
-  
-  )
-}
-
-
-
-graficador(3,15,60,"price_function")
-dicotomic_function<-function(c_1,c_2,n_1,n_2,N){
-  return(
-    (
-      n_1+c_1*(N-n_1-n_2)
-    )/(
-      (n_1+n_2)*((c_1+c_2)==0)+N*((c_1+c_2)>0)
+"""
+FUNCION DE PRECIO
+"""
+price_function<-function(p_1, p_2, k=200){
+  return(1 - (
+    exp(p_1 / k ) /
+      (exp(p_1 / k ) + exp( p_2 / k ))
     )
   )
 }
 
-dicotomic_function<-function(c_1,c_2,n_1,n_2,N){
-  return(
-    (
-      n_1+c_1*(N-n_1-n_2)
-    )/(
-      (n_1+n_2)*(1 -c_1) * ( 1 - c_2 )+N*((c_1+c_2)>0)
-    )
-  )
-}
 
-dicotomic_function1<-function(c_1,c_2,n_1,n_2,N){
-  return(
-    c_1 * c_2 * 0.6 +
-      c_1 * (1 - c_2) * 0.75 +
-      (1 -c_1) * ( 1 - c_2 ) * 0.65+
-      c_1 * (1 - c_2) * 0.8
-  )
-}
-dicotomic_function2<-function(c_1,c_2,n_1,n_2,N){
-  return(
-    c_1 * c_2 * 0.6 +
-      c_1 * (1 - c_2) * 0.65 +
-      (1 -c_1) * ( 1 - c_2 ) * 0.75+
-      c_1 * (1 - c_2) * 0.8
-  )
-}
 
-price_control<-function(p,k=400,m=1000){
+graficador(3,1000,60,"price_function")
+
+"""
+FUNCION DE DECISON
+"""
+
+dicotomic_function_ps<-function(c_ps, c_xb){
+  return(
+    c_ps * c_xb * 0.6 +
+      c_ps * (1 - c_xb) * 0.75 +
+      (1 -c_ps) * ( 1 - c_xb ) * 0.65+
+      c_ps * (1 - c_xb) * 0.8
+  )
+}
+dicotomic_function_xb<-function(c_xb, c_ps){
+  return(
+    c_ps * c_xb * 0.4 +
+      c_ps * (1 - c_xb) * 0.65 +
+      (1 -c_ps) * ( 1 - c_xb ) * 0.75+
+      c_ps * (1 - c_xb) * 0.8
+  )
+}
+"""
+cONTROL DE PRECIO
+"""
+
+price_control<-function(p, m=1000){
   return(0+
-           (p<m)*(((p-m)/m)^2)
-  )
-}
-price_control<-function(p,k=400,m=1000){
-  return(0+
-          (p<m)*exp(-p/k)*(((p-m)/m)^2)
+           ( p < m )*
+           ( 
+             (
+             ( p - m ) / m ) ^ 2 
+             ) 
   )
 }
 
+"""
+FUNCIONES DE VENTAS
+"""
 
-m_ps<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=0.03){
+ventas_ps<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
   return(
-    2000*dicotomic_function(c_1,c_2,n_1,n_2,N)*price_function(p_1,p_2,k)*price_control(p_1)
+    200000000 * 
+      dicotomic_function_ps(c_ps, c_xb ) * 
+      price_function(p_ps, p_xb, k) *
+      price_control(p_ps)
   )
 }
-graficador(1,10,60,"m_ps")
 
-V_ps<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=400){
-  m_ps(p_1,p_2,c_1=c_1,c_2=c_2,k=k,n_1 = n_1,n_2=n_2,N=N)*(p_1-100)
+ventas_xb<-function(p_xb, p_ps, c_ps=0, c_xb=0, k=400){
+  return(
+    200000000*
+      dicotomic_function_xb(c_ps, c_xb)*
+      price_function(p_xb, p_ps, k)* 
+      price_control(p_xb)
+  )
+}
+graficador(1,1000,60,"ventas_ps")
+
+"""
+FUNCIONES DE BENEFICIOS
+"""
+
+beneficios_ps<-function( p_ps, p_xb, c_ps=0, c_xb=0, k=400 , coste = 100 ){
+  ventas_ps(p_ps , p_xb , c_ps=c_ps , c_xb=c_xb , k=k ) *
+    ( p_ps -  coste )
 }
 
-V_xb<-function(p_1,p_2,c_1=0,c_2=0,n_1=100000000,n_2=50000000,N=500000000,k=300){
-  m_ps(p_2,p_1,c_1=c_1,c_2=c_2,k=k,n_1 = n_1,n_2=n_2,N=N)*(p_2-50)
+beneficios_xb<-function( p_xb , p_ps , c_ps=0 , c_xb=0 , k=400 , coste = 70 ){
+  ventas_xb( p_xb , p_ps , c_ps=c_ps , c_xb=c_xb , k=k ) * 
+    ( p_xb - coste )
 }
 
-graficador(1,1000,60,"V_ps")
-k=1000
-P=1000
-numeros=numeric(P)
-a=0
-numero =0
-for( i in 1:P){
-  for( j in 1:k){
-    if (a < V_ps(j,i)){
-      numero=j
-      a=V_ps(j,i)
-    }
+graficador(1,1000,60,"beneficios_ps")
+
+"""
+FUNCIONES DE RESOLUCIÓN
+"""
+
+resolucion<- function( coste_ps , coste_xb , c_ps = 0 , c_xb = 0 , x0=0 , y0=0 , N=100 ){
+  z = matrix(0,nrow=2,ncol=c+1); z[,1] <- c(x0,y0)
+  for(i in 1:N){
+    z[1,i+1] <- optim(z[1,i],function(x){-beneficios_ps( x , z[2,i] , c_ps , c_xb , coste = coste_ps )})$par
+    z[2,i+1] <- optim(z[2,i],function(y){-beneficios_xb( y , z[1,i+1] , c_ps , c_xb , coste = coste_xb ) })$par
   }
-  numeros[i]=numero
-}
-numeros
-plot(numeros)
-c=10000
-ps=numeric(c)
-xb=numeric(c)
-xb[1]=0
-for(i in 1:1000){
-  ps[i+1]=numeros[xb[i]]
-  xb[i+1]=numeros[ps[i+1]]
+  return(z)
 }
 
-x0 = 0
-y0 = 0
-c = 100
-z = matrix(0,nrow=2,ncol=c+1); z[,1] <- c(x0,y0)
-for(i in 1:c){
-  z[1,i+1] <- optim(z[1,i],function(x){-V_ps(x,z[2,i])})$par
-  z[2,i+1] <- optim(z[2,i],function(y){-V_xb(z[1,i+1],y)})$par
-}
-z
+resolucion(100,70)
+
