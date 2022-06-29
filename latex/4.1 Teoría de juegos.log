@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.21)  21 JUN 2022 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.21)  23 JUN 2022 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./tfg.tex
-(tfg.tex
+**"./4.1 Teoría de juegos.tex"
+(4.1 Teoría de juegos.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24>
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -89,11 +89,11 @@ tex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box50
-) (tfg.aux
+) (4.1 Teoría de juegos.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
-\openout1 = `tfg.aux'.
+\openout1 = `"4.1 Teoría de juegos.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -137,38 +137,32 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
-<logo_UCM.png, id=1, 284.5029pt x 261.6174pt>
-File: logo_UCM.png Graphic file (type png)
-<use logo_UCM.png>
-Package pdftex.def Info: logo_UCM.png  used on input line 24.
-(pdftex.def)             Requested size: 164.31752pt x 151.09947pt.
  [1
 
-{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_UCM.p
-ng>]
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-[1] (tfg.aux
+[2] (4.1 Teoría de juegos.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 2736 strings out of 478582
- 45312 string characters out of 2844344
- 353268 words of memory out of 3000000
- 20942 multiletter control sequences out of 15000+600000
- 471384 words of font info for 35 fonts, out of 8000000 for 9000
+ 2719 strings out of 478582
+ 45324 string characters out of 2844344
+ 353308 words of memory out of 3000000
+ 20926 multiletter control sequences out of 15000+600000
+ 470779 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,5n,62p,905b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 55i,5n,62p,925b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmr10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb>
-Output written on tfg.pdf (2 pages, 221542 bytes).
+Output written on "4.1 Teoría de juegos.pdf" (2 pages, 47551 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 24 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

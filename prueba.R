@@ -126,4 +126,4 @@ for(i in 1:c){
   z[1,i+1] <- optim(z[1,i],function(x){-V_ps(x,z[2,i])})$par
   z[2,i+1] <- optim(z[2,i],function(y){-V_xb(z[1,i+1],y)})$par
 }
-
+z
