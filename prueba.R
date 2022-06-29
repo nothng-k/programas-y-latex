@@ -1,8 +1,8 @@
 
 
-"""
-FUNCION PARA GRAFICAR
-"""
+
+#FUNCION PARA GRAFICAR
+
 
 
 graficador<-function(a,b,l,f){
@@ -17,9 +17,9 @@ graficador<-function(a,b,l,f){
   ) -> res
 }
 
-"""
-FUNCION DE PRECIO
-"""
+
+#FUNCION DE PRECIO
+
 price_function<-function(p_1, p_2, k=200){
   return(1 - (
     exp(p_1 / k ) /
@@ -32,29 +32,29 @@ price_function<-function(p_1, p_2, k=200){
 
 graficador(3,1000,60,"price_function")
 
-"""
-FUNCION DE DECISON
-"""
+ 
+#FUNCION DE DECISON
+ 
 
 dicotomic_function_ps<-function(c_ps, c_xb){
   return(
-    c_ps * c_xb * 0.6 +
-      c_ps * (1 - c_xb) * 0.75 +
-      (1 -c_ps) * ( 1 - c_xb ) * 0.65+
-      c_ps * (1 - c_xb) * 0.8
-  )
-}
-dicotomic_function_xb<-function(c_xb, c_ps){
-  return(
-    c_ps * c_xb * 0.4 +
+     (1 -c_ps) * ( 1 - c_xb ) * 0.6+
       c_ps * (1 - c_xb) * 0.65 +
-      (1 -c_ps) * ( 1 - c_xb ) * 0.75+
-      c_ps * (1 - c_xb) * 0.8
+      c_xb * (1 - c_ps) * 0.45+
+      c_ps * c_xb * 0.5
   )
 }
-"""
-cONTROL DE PRECIO
-"""
+dicotomic_function_xb<-function(c_ps, c_xb){
+  return(
+     (1 -c_ps) * ( 1 - c_xb ) * 0.4+
+      c_ps * (1 - c_xb) * 0.3 +
+      c_xb * (1 - c_ps) * 0.45+
+     c_ps * c_xb * 0.4
+  )
+}
+ 
+#CONTROL DE PRECIO
+ 
 
 price_control<-function(p, m=1000){
   return(0+
@@ -66,11 +66,11 @@ price_control<-function(p, m=1000){
   )
 }
 
-"""
-FUNCIONES DE VENTAS
-"""
+ 
+#FUNCIONES DE VENTAS
+ 
 
-ventas_ps<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
+ventas_ps<-function(p_ps, p_xb, c_ps=1, c_xb=0, k=400){
   return(
     200000000 * 
       dicotomic_function_ps(c_ps, c_xb ) * 
@@ -79,7 +79,7 @@ ventas_ps<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
   )
 }
 
-ventas_xb<-function(p_xb, p_ps, c_ps=0, c_xb=0, k=400){
+ventas_xb<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
   return(
     200000000*
       dicotomic_function_xb(c_ps, c_xb)*
@@ -89,34 +89,74 @@ ventas_xb<-function(p_xb, p_ps, c_ps=0, c_xb=0, k=400){
 }
 graficador(1,1000,60,"ventas_ps")
 
-"""
-FUNCIONES DE BENEFICIOS
-"""
+ventas_ps(100,100, c_ps=0, c_xb=1)
+ventas_xb(100,100)
+ 
+#FUNCIONES DE BENEFICIOS
+ 
 
-beneficios_ps<-function( p_ps, p_xb, c_ps=0, c_xb=0, k=400 , coste = 100 ){
+beneficios_ps<-function( p_ps, p_xb, c_ps=0, c_xb=1, k=400 , coste = 100 ){
   ventas_ps(p_ps , p_xb , c_ps=c_ps , c_xb=c_xb , k=k ) *
     ( p_ps -  coste )
 }
 
-beneficios_xb<-function( p_xb , p_ps , c_ps=0 , c_xb=0 , k=400 , coste = 70 ){
-  ventas_xb( p_xb , p_ps , c_ps=c_ps , c_xb=c_xb , k=k ) * 
+beneficios_xb<-function( p_ps , p_xb , c_ps=0 , c_xb=0 , k=400 , coste = 70 ){
+  ventas_xb( p_ps , p_xb , c_ps=c_ps , c_xb=c_xb , k=k ) * 
     ( p_xb - coste )
 }
 
 graficador(1,1000,60,"beneficios_ps")
 
-"""
-FUNCIONES DE RESOLUCIÓN
-"""
+beneficios_ps(100,100)
+ 
+#FUNCIONES DE RESOLUCIÓN
+ 
 
-resolucion<- function( coste_ps , coste_xb , c_ps = 0 , c_xb = 0 , x0=0 , y0=0 , N=100 ){
-  z = matrix(0,nrow=2,ncol=c+1); z[,1] <- c(x0,y0)
+resolucion<- function( coste_ps , coste_xb , c_ps = 0 , c_xb = 0 , x0=0 , y0=0 , N=20 ){
+  z = matrix(0,nrow=2,ncol=N+1); z[,1] <- c(x0,y0)
   for(i in 1:N){
     z[1,i+1] <- optim(z[1,i],function(x){-beneficios_ps( x , z[2,i] , c_ps , c_xb , coste = coste_ps )})$par
-    z[2,i+1] <- optim(z[2,i],function(y){-beneficios_xb( y , z[1,i+1] , c_ps , c_xb , coste = coste_xb ) })$par
+    z[2,i+1] <- optim(z[2,i],function(y){-beneficios_xb( z[1,i+1] , y , c_xb , c_ps , coste = coste_xb ) })$par
   }
-  return(z)
+  print(z[,i+1])
+  return(z[,i+1]*c(
+    ventas_ps(coste_ps, coste_xb, c_ps = c_ps , c_xb = c_xb),
+    ventas_xb(coste_ps, coste_xb, c_ps = c_ps , c_xb = c_xb)
+  ))
 }
 
-resolucion(100,70)
+resolucion(100,150, c_ps = 0 , c_xb = 1)
+
+#SOLUCIÓN
+
+coste_ps = 100
+coste_xb = 20
+
+game1b <- normal_form(
+  players = c("PlayStation", "Xbox"),
+  s1 = c("No hace crossplay", "Hace crossplay"), 
+  s2 = c("No hace crossplay", "Hace crossplay"),
+  cells = list(resolucion(coste_ps, coste_xb), 
+               resolucion(coste_ps, coste_xb, c_ps = 0 , c_xb = 1),
+               resolucion(coste_ps, coste_xb, c_ps = 1 , c_xb = 0),
+               resolucion(coste_ps, coste_xb, c_ps = 1 , c_xb = 1)
+               ),
+  byrow = TRUE)
+game1b 
+
+s_game1 <- solve_nfg(game1b, show_table = TRUE)
+
+#install.packages("devtools")
+devtools::install_github("yukiyanai/rgamer")
+library(rgamer)
+#ANÁLISIS DE SENSIBILIDAD
+
+
+
+  
+
+for (variable in vector) {
+  
+}
+
 
