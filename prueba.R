@@ -1,9 +1,9 @@
 
-
+#install.packages("devtools")
+#devtools::install_github("yukiyanai/rgamer")
+library(rgamer)
 
 #FUNCION PARA GRAFICAR
-
-
 
 graficador<-function(a,b,l,f){
   x <- seq(a, b, length.out = l)
@@ -39,17 +39,17 @@ graficador(3,1000,60,"price_function")
 dicotomic_function_ps<-function(c_ps, c_xb){
   return(
      (1 -c_ps) * ( 1 - c_xb ) * 0.6+
-      c_ps * (1 - c_xb) * 0.65 +
+      c_ps * (1 - c_xb) * 0.8 +
       c_xb * (1 - c_ps) * 0.45+
-      c_ps * c_xb * 0.5
+      c_ps * c_xb * 0.4
   )
 }
 dicotomic_function_xb<-function(c_ps, c_xb){
   return(
      (1 -c_ps) * ( 1 - c_xb ) * 0.4+
-      c_ps * (1 - c_xb) * 0.3 +
-      c_xb * (1 - c_ps) * 0.45+
-     c_ps * c_xb * 0.4
+      c_ps * (1 - c_xb) * 0.35 +
+      c_xb * (1 - c_ps) * 0.6+
+     c_ps * c_xb * 0.2
   )
 }
  
@@ -72,7 +72,7 @@ price_control<-function(p, m=1000){
 
 ventas_ps<-function(p_ps, p_xb, c_ps=1, c_xb=0, k=400){
   return(
-    200000000 * 
+    20 * 
       dicotomic_function_ps(c_ps, c_xb ) * 
       price_function(p_ps, p_xb, k) *
       price_control(p_ps)
@@ -81,7 +81,7 @@ ventas_ps<-function(p_ps, p_xb, c_ps=1, c_xb=0, k=400){
 
 ventas_xb<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
   return(
-    200000000*
+    20*
       dicotomic_function_xb(c_ps, c_xb)*
       price_function(p_xb, p_ps, k)* 
       price_control(p_xb)
@@ -112,11 +112,11 @@ beneficios_ps(100,100)
 #FUNCIONES DE RESOLUCIÓN
  
 
-resolucion<- function( coste_ps , coste_xb , c_ps = 0 , c_xb = 0 , x0=0 , y0=0 , N=20 ){
+resolucion<- function( coste_ps , coste_xb , c_ps = 0 , c_xb = 0 , x0=0 , y0=0 , N=100 ){
   z = matrix(0,nrow=2,ncol=N+1); z[,1] <- c(x0,y0)
   for(i in 1:N){
     z[1,i+1] <- optim(z[1,i],function(x){-beneficios_ps( x , z[2,i] , c_ps , c_xb , coste = coste_ps )})$par
-    z[2,i+1] <- optim(z[2,i],function(y){-beneficios_xb( z[1,i+1] , y , c_xb , c_ps , coste = coste_xb ) })$par
+    z[2,i+1] <- optim(z[2,i],function(y){-beneficios_xb( z[1,i+1] , y , c_ps , c_xb , coste = coste_xb ) })$par
   }
   print(z[,i+1])
   return(z[,i+1]*c(
@@ -130,7 +130,7 @@ resolucion(100,150, c_ps = 0 , c_xb = 1)
 #SOLUCIÓN
 
 coste_ps = 100
-coste_xb = 20
+coste_xb = 150
 
 game1b <- normal_form(
   players = c("PlayStation", "Xbox"),
@@ -142,21 +142,45 @@ game1b <- normal_form(
                resolucion(coste_ps, coste_xb, c_ps = 1 , c_xb = 1)
                ),
   byrow = TRUE)
-game1b 
+game1b
+s_game1 <- solve_nfg(game1b, mixed = TRUE, show_table = TRUE)
 
-s_game1 <- solve_nfg(game1b, show_table = TRUE)
+s_game1$br_plot
+solucion<-function(coste_ps = 100, coste_xb = 100){
+  game1b <- normal_form(
+    players = c("PlayStation", "Xbox"),
+    s1 = c("No hace crossplay", "Hace crossplay"), 
+    s2 = c("No hace crossplay", "Hace crossplay"),
+    cells = list(resolucion(coste_ps, coste_xb), 
+                 resolucion(coste_ps, coste_xb, c_ps = 0 , c_xb = 1),
+                 resolucion(coste_ps, coste_xb, c_ps = 1 , c_xb = 0),
+                 resolucion(coste_ps, coste_xb, c_ps = 1 , c_xb = 1)
+    ),
+    byrow = TRUE)
+  return(solve_nfg(game1b, mixed = TRUE, show_table = TRUE))
+}
 
-#install.packages("devtools")
-devtools::install_github("yukiyanai/rgamer")
-library(rgamer)
+sol=solucion(100,900)
+
+sol$br_plot
+
+sol$msNE_prob
+
+
 #ANÁLISIS DE SENSIBILIDAD
 
+a=20
+b=100
+l=8+1
 
 
-  
-
-for (variable in vector) {
+for (coste_xb in seq(a, b, length.out = l)) {
   
 }
+
+
+
+
+
 
 
