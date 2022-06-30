@@ -66,6 +66,30 @@ price_control<-function(p, m=1000){
   )
 }
 
+price_control_ps<-function(p, m=2000,c_ps, c_xb){
+  m=m*dicotomic_function_ps(c_ps ,c_xb)
+  return(0+
+           ( p < m )*
+           ( 
+             (
+               ( p - m ) / m ) ^ 2 
+           ) 
+  )
+}
+
+price_control_xb<-function(p, m=2000,c_ps, c_xb){
+  m=m*dicotomic_function_ps(c_ps ,c_xb)
+  return(0+
+           ( p < m )*
+           ( 
+             (
+               ( p - m ) / m ) ^ 2 
+           ) 
+  )
+}
+
+
+
  
 #FUNCIONES DE VENTAS
  
@@ -87,6 +111,26 @@ ventas_xb<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400){
       price_control(p_xb)
   )
 }
+###############
+ventas_ps<-function(p_ps, p_xb, c_ps=1, c_xb=0, k=400,m=2000){
+  return(
+    20 * 
+      dicotomic_function_ps(c_ps, c_xb ) * 
+      price_function(p_ps, p_xb, k) *
+      price_control_ps(p_ps, m, c_ps, c_xb)
+  )
+}
+
+ventas_xb<-function(p_ps, p_xb, c_ps=0, c_xb=0, k=400, m=2000){
+  return(
+    20*
+      dicotomic_function_xb(c_ps, c_xb)*
+      price_function(p_xb, p_ps, k)* 
+      price_control_xb(p_xb, m, c_ps, c_xb)
+  )
+}
+
+
 graficador(1,1000,60,"ventas_ps")
 
 ventas_ps(100,100, c_ps=0, c_xb=1)
