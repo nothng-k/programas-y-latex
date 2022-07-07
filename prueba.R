@@ -204,7 +204,7 @@ solucion<-function(coste_ps = 100, coste_xb = 100){
   return(solve_nfg(game1b, mixed = TRUE, show_table = TRUE))
 }
 
-sol=solucion(100,900)
+sol=solucion(100,500)
 
 sol$br_plot
 
