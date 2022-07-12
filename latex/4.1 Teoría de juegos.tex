@@ -51,6 +51,7 @@ Una relación de preferencia es racional si se cumplen las siguientes dos propie
 (I) Completitud: Para todo $x,y \in X$ tenemos que $x \preceq y$ o $x \succeq y$ (o no excluyente)
 (II)Transitividad: Para todo $x, y, z \in X$ tenemos que si $x \preceq y$ y $y \preceq z$ entonces $x \preceq z$
 
+
 explicación de la función de utilidad
 
 Definición 2.5 Función de utilidad: Una función $u:X \to \R$ es una función de utilidad que representa una relación si, para todo $x,y \in X$,
@@ -77,17 +78,23 @@ definición 2.7 problema de decisión
   
   (II)Un conjunto, $\Theta$, de estados de la naturaleza , que describen las circunstancias que pueden afectar o influir en la decisiones a adoptar.
   
-  (III)Una función de utilidad $u:Ax\Theta \to \R$de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.
+  (III)Una función de utilidad $u:Ax\Theta \to \R$ de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.
    
-   
+De ahora en adelante supondremos que la función de utilidad proveniente de una relación preferencial.
+ 
 Nótese que en (I) y en (II) los conjuntos pueden ser finitos, numerables, continuos o arbitrariamente complejos
 
 Puede darse el caso de que el conjunto $\Theta$ tenga asociado una distribución de probabilidad(puede ser objetiva o subjetiva)
 
-definición 2.8 Lotería simple: Dado un conjunto de estados de la naturaleza $\Theta =\{ \theta_1,...,\theta_N \} $ $N \in \mathbb{N}$ entonces se llama lotería a la lista $L=\{ \lambda_1,...,\lambda_N\} $ donde $\lambda_n \ge 0$ $\forall n \in \{ 1,..,N\} $ y $\sum_{n=1}^{N} \lambda_n=1$, donde $\lambda_n$ se interpreta como la probabilidad de que el suceso $\theta_n$ ocurra.
+definición 2.8 Lotería simple: Dado un conjunto de estados de la naturaleza $\Theta =\{ \theta_1,...,\theta_N \} $ $N \in \mathbb{N}$ entonces se llama lotería a la lista $\Lambda =\{ \lambda_1,...,\lambda_N\} $ donde $\lambda_n \ge 0$ $\forall n \in \{ 1,..,N\} $ y $\sum_{n=1}^{N} \lambda_n=1$, donde $\lambda_n$ se interpreta como la probabilidad de que el suceso $\theta_n$ ocurra.
 
 
-definición 2.9 
+
+definición 2.9 Función de utilidad esperada:
+En un problema de decisión se define utilidad esperada de una acción $a \in A$ dada una lotería $ \Lambda =\{ \lambda_1,...,\lambda_N\} $ como:
+$E[u(a)]=\sum_{n=1}^{N}\lambda_n*u(a,n)$
+
+definición 2.10
 
 
 \newpage
