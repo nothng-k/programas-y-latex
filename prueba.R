@@ -18,7 +18,7 @@ graficador<-function(a,b,l,f){
 }
 
 
-#FUNCION DE PRECIO
+#FUNCION DE PRECIO funcióon relu 
 
 price_function<-function(p_1, p_2, k=200){
   return(1 - (
@@ -44,6 +44,7 @@ dicotomic_function_ps<-function(c_ps, c_xb){
       c_ps * c_xb * 0.4
   )
 }
+
 dicotomic_function_xb<-function(c_ps, c_xb){
   return(
      (1 -c_ps) * ( 1 - c_xb ) * 0.4+

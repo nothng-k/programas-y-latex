@@ -1,9 +1,11 @@
 \documentclass[11pt, a4paper]{article} %tamaño mínimo de letra 11pto.
-
+\usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{graphicx} 
 \usepackage[spanish]{babel} %Español 
 \usepackage[utf8]{inputenc} %Para poder poner tildes
-\usepackage{vmargin} %Para modificar los márgenes
+\usepackage{vmargin} %Para modificar los márgene
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
 \setmargins{2.5cm}{1.5cm}{16.5cm}{23.42cm}{10pt}{1cm}{0pt}{2cm}
 %margen izquierdo, superior, anchura del texto, altura del texto, altura de los encabezados, espacio entre el texto y los encabezados, altura del pie de página, espacio entre el texto y el pie de página
 
@@ -19,6 +21,73 @@ En éste capítulo se representan las nociones de teoría de juegos y análisis 
 
 Para la documentación en teoría de juego se han utilizado
 
+
+
+{\bfseries \large 2.1. Teoría de juegos} \vspace{10mm}
+
+En teoría de juegos cada jugador intenta conseguir el mejor resultado posible (maximizar su utilidad), pero teniendo en cuenta que el resultado del juego no depende sólo de sus acciones, sino también de las acciones de los otros jugadores. Para maximixar la utilidad supondremos que los jugadores son racionales, buscando un equilibrio en el que a los jugadores no les convenga cambiar su decisión .
+
+
+El campo de estudio de la teoría de juegos es muy general. No es preciso que haya
+entretenimiento, pero sí interacción.
+
+{\bfseries \large 2.1.1. Teoría de la utilidad} \vspace{5mm}
+
+empezaremos explicando las relaciones preferenciales(extenderse)
+
+$\preceq 
+\succeq$
+
+las relaciones que vamos a describir se tratan de relaciones binarias entre diferentes alternativas
+
+Definición 2.1 Relación preferencial: Sean $x$ e $y$ dos estados de un cierto espacio de estados, representaremos que x es al menos tan preferible como y si $x \succeq y$. 
+
+Definición 2.2 Relación preferencial estricta: Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es preferible a y, representándolo como $x \succ y$ si y solo si $x \succeq y$ pero no se da $x \preceq y$.
+
+Definición 2.3 Relación indiferente: Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es indiferente a y, representándolo como $x \sim y$ si y solo si se da  $x \succeq y$ y $x \preceq y$.
+
+Definición 2.4 Preferencia racional:
+Una relación de preferencia es racional si se cumplen las siguientes dos propiedades, dado el espacio de estados $X$:
+(I) Completitud: Para todo $x,y \in X$ tenemos que $x \preceq y$ o $x \succeq y$ (o no excluyente)
+(II)Transitividad: Para todo $x, y, z \in X$ tenemos que si $x \preceq y$ y $y \preceq z$ entonces $x \preceq z$
+
+explicación de la función de utilidad
+
+Definición 2.5 Función de utilidad: Una función $u:X \to \R$ es una función de utilidad que representa una relación si, para todo $x,y \in X$,
+
+(Nótese que de  )
+
+
+Proposición 2.6 
+Una relación preferencial puede ser representada mediante una función de utilidad solo si es racional.
+
+$x \preceq y \iff x \le y$ .
+
+¿utilidades exponenciales?
+
+
+{\bfseries \large 2.1.1. Teoría de la decisión} \vspace{5mm}
+
+La teoría de la decisión analiza la forma de seleccionar una de las alternativas entre varia posibles de manera racional
+
+definición 2.7 problema de decisión  
+ Los elementos esenciales de un problema de decisión son:
+  
+  (I)Un conjunto, $A$, de acciones o alternativas entre las cuales el decisor debe elegir la que le parezca mejor.
+  
+  (II)Un conjunto, $\Theta$, de estados de la naturaleza , que describen las circunstancias que pueden afectar o influir en la decisiones a adoptar.
+  
+  (III)Una función de utilidad $u:Ax\Theta \to \R$de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.
+   
+   
+Nótese que en (I) y en (II) los conjuntos pueden ser finitos, numerables, continuos o arbitrariamente complejos
+
+Puede darse el caso de que el conjunto $\Theta$ tenga asociado una distribución de probabilidad(puede ser objetiva o subjetiva)
+
+definición 2.8 Lotería simple: Dado un conjunto de estados de la naturaleza $\Theta =\{ \theta_1,...,\theta_N \} $ $N \in \mathbb{N}$ entonces se llama lotería a la lista $L=\{ \lambda_1,...,\lambda_N\} $ donde $\lambda_n \ge 0$ $\forall n \in \{ 1,..,N\} $ y $\sum_{n=1}^{N} \lambda_n=1$, donde $\lambda_n$ se interpreta como la probabilidad de que el suceso $\theta_n$ ocurra.
+
+
+definición 2.9 
 
 
 \newpage
