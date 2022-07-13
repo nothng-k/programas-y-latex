@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.21)  12 JUL 2022 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.6.21)  13 JUL 2022 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -225,10 +225,10 @@ LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 3958 strings out of 478582
- 61336 string characters out of 2844344
+ 3960 strings out of 478582
+ 61352 string characters out of 2844344
  369155 words of memory out of 3000000
- 22125 multiletter control sequences out of 15000+600000
+ 22127 multiletter control sequences out of 15000+600000
  474522 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,62p,454b,363s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -241,7 +241,7 @@ KTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manue/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/manue/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manue/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "4.1 Teoría de juegos.pdf" (2 pages, 92931 bytes).
+Output written on "4.1 Teoría de juegos.pdf" (2 pages, 97396 bytes).
 PDF statistics:
  49 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

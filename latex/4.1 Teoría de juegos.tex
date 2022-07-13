@@ -90,11 +90,47 @@ definición 2.8 Lotería simple: Dado un conjunto de estados de la naturaleza $\
 
 
 
-definición 2.9 Función de utilidad esperada:
-En un problema de decisión se define utilidad esperada de una acción $a \in A$ dada una lotería $ \Lambda =\{ \lambda_1,...,\lambda_N\} $ como:
-$E[u(a)]=\sum_{n=1}^{N}\lambda_n*u(a,n)$
+definición 2.9 Función de utilidad esperada Von Neumann-Morgenstern (VN-M):
+En un problema de decisión se define utilidad esperada de una lotería $ \Lambda =\{ \lambda_1,...,\lambda_N\} $ dada una acción $a \in A$ dada  como:
+$u_a(L)=\sum_{n=1}^{N}\lambda_n*u(a,n)$
 
-definición 2.10
+
+{\bfseries \large 2.1. Teoría de juegos} \vspace{10mm}
+
+Hasta ahora hemos analizado los problemas de decisión individuales, podemos interpretar como una progresión razonable del problema es añadir personas, es decir, además de una naturaleza aleatoria que puede alterar la decisión que más nos conviene, añadimos a otras personas que pueden alterarla también.
+
+def 2.10 juego :
+definimos juego como la representación formal de una situación donde un número de individuos, mayor que uno, interactuan de manera interdependiente.
+
+los elementos básico de un problema en teoría de juego son:
+(I)Los jugadores: Serán los que tomarán decisiones que modifiquen el juego (se puede considerar a la naturaleza aleatoria como uno).
+(II)Las reglas: Definirá lo que puede y no puede hacer cada jugador y en que momento.
+(III)Los resultados: Definirá cual es el resultado de cada acción de cada jugador.
+(IV)Los beneficios: Define las preferencias de cada jugador sobre los posibles resultados, normalmente se usarán funciones de utilidad para definirlos.
+
+
+
+Tipos de juegos
+
+Hay dos enfoques básicos, juegos cooperativos y no cooperativos.En los juegos cooperativos se analizan las posibilidades de que algunos o todos los jugadores lleguen a un acuerdo sobre qué decisiones va a tomar cada uno, mientras que en el enfoque no cooperativo se analiza qué decisiones tomaría cada jugador en ausencia de acuerdo previo, nosotros nos centraremos en estos últimos.
+
+También se pueden dividir los juego entre juego dinámicos y juegos estáticos
+
+Hay principalmente dos formas de representar un juego:
+(I)La normal (o estratégica) forma de representación donde la información es descrita mediante una tabla
+(II)La forma extensiva de representación donde la información esta explicitamente descrita usando arboles de juego y conjuntos de información.
+
+definición Game tree :
+es un un grafo con estructura de árbol, consistente en los siguientes elmentos :
+
+(I)Orden de movimientos:
+
+
+
+
+
+
+
 
 
 \newpage
