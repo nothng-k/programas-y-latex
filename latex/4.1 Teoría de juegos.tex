@@ -1,7 +1,13 @@
-\documentclass[11pt, a4paper]{article} %tamaño mínimo de letra 11pto.
+\documentclass[14pt, a4paper]{article} %tamaño mínimo de letra 11pto.
 \usepackage{amssymb}
+\usepackage{imakeidx}%indice
 \usepackage{amsmath}
 \usepackage{graphicx} 
+\usepackage[T1]{fontenc}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+\newtheorem{mydef}{Definición}
+
+
 \usepackage[spanish]{babel} %Español 
 \usepackage[utf8]{inputenc} %Para poder poner tildes
 \usepackage{vmargin} %Para modificar los márgene
@@ -9,21 +15,25 @@
 \setmargins{2.5cm}{1.5cm}{16.5cm}{23.42cm}{10pt}{1cm}{0pt}{2cm}
 %margen izquierdo, superior, anchura del texto, altura del texto, altura de los encabezados, espacio entre el texto y los encabezados, altura del pie de página, espacio entre el texto y el pie de página
 
+\newtheorem{definicion}{Definición}[section]
+
+
+
 \begin{document}
+
 %%%%%%Portada%%%%%%%
+\tableofcontents
+
 \newpage
 
-{\bfseries \large Capítulo 2 }\vspace{10mm} 
 
-{\bfseries \large Base teórica} \vspace{15mm}
+\section{Base teórica}
+
 
 En éste capítulo se representan las nociones de teoría de juegos y análisis de sensibilidad, que aplicaremos posteriormente en el caso práctico 
 
 Para la documentación en teoría de juego se han utilizado
 
-
-
-{\bfseries \large 2.1. Teoría de juegos} \vspace{10mm}
 
 En teoría de juegos cada jugador intenta conseguir el mejor resultado posible (maximizar su utilidad), pero teniendo en cuenta que el resultado del juego no depende sólo de sus acciones, sino también de las acciones de los otros jugadores. Para maximixar la utilidad supondremos que los jugadores son racionales, buscando un equilibrio en el que a los jugadores no les convenga cambiar su decisión .
 
@@ -31,32 +41,51 @@ En teoría de juegos cada jugador intenta conseguir el mejor resultado posible (
 El campo de estudio de la teoría de juegos es muy general. No es preciso que haya
 entretenimiento, pero sí interacción.
 
-{\bfseries \large 2.1.1. Teoría de la utilidad} \vspace{5mm}
+\subsection{Teoría de la utilidad.}
 
 empezaremos explicando las relaciones preferenciales(extenderse)
 
-$\preceq 
-\succeq$
 
 las relaciones que vamos a describir se tratan de relaciones binarias entre diferentes alternativas
 
-Definición 2.1 Relación preferencial: Sean $x$ e $y$ dos estados de un cierto espacio de estados, representaremos que x es al menos tan preferible como y si $x \succeq y$. 
+\begin{definicion}[Relación preferencial]
+ Sean $x$ e $y$ dos estados de un cierto espacio de estados, representaremos que x es al menos tan preferible como y mediante $x \succeq y$. 
+\end{definicion}
 
-Definición 2.2 Relación preferencial estricta: Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es preferible a y, representándolo como $x \succ y$ si y solo si $x \succeq y$ pero no se da $x \preceq y$.
+\begin{definicion}[Relación preferencial estricta]
+Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es preferible a y, representándolo como $x \succ y$ si y solo si $x \succeq y$ pero no se da $x \preceq y$. 
+\end{definicion}
 
-Definición 2.3 Relación indiferente: Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es indiferente a y, representándolo como $x \sim y$ si y solo si se da  $x \succeq y$ y $x \preceq y$.
+\begin{definicion}[Relación indiferente]
+Sean $x$ e $y$ dos estados de un cierto espacio de estados, diremos que x es indiferente a y, representándolo como $x \sim y$ si y solo si se da  $x \succeq y$ y $x \preceq y$.
+\end{definicion}
 
-Definición 2.4 Preferencia racional:
+\begin{definicion}[Preferencia racional]
 Una relación de preferencia es racional si se cumplen las siguientes dos propiedades, dado el espacio de estados $X$:
+
 (I) Completitud: Para todo $x,y \in X$ tenemos que $x \preceq y$ o $x \succeq y$ (o no excluyente)
-(II)Transitividad: Para todo $x, y, z \in X$ tenemos que si $x \preceq y$ y $y \preceq z$ entonces $x \preceq z$
+
+(II)Transitividad: Para todo $x, y, z \in X$ tenemos que si $x \preceq y$ y $y \preceq z$ entonces $x \preceq z$.
+\end{definicion}
+
+\begin{definicion}[Función de utilidad]
+Una función $u:X \to \R$ es una función de utilidad que representa una relación si, para todo $x,y \in X$:
+$$ 
+x \preceq y \iff u(x)\le u(y)
+$$
+
+\end{definicion}
+\begin{definicion}[]
+
+\end{definicion}
 
 
-explicación de la función de utilidad
 
-Definición 2.5 Función de utilidad: Una función $u:X \to \R$ es una función de utilidad que representa una relación si, para todo $x,y \in X$,
 
-(Nótese que de  )
+
+
+
+
 
 
 Proposición 2.6 
@@ -66,8 +95,8 @@ $x \preceq y \iff x \le y$ .
 
 ¿utilidades exponenciales?
 
+\subsection{Teoría de la decisión.}
 
-{\bfseries \large 2.1.1. Teoría de la decisión} \vspace{5mm}
 
 La teoría de la decisión analiza la forma de seleccionar una de las alternativas entre varia posibles de manera racional
 
@@ -78,7 +107,7 @@ definición 2.7 problema de decisión
   
   (II)Un conjunto, $\Theta$, de estados de la naturaleza , que describen las circunstancias que pueden afectar o influir en la decisiones a adoptar.
   
-  (III)Una función de utilidad $u:Ax\Theta \to \R$ de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.
+(III)Una función de utilidad $u:Ax\Theta \to \R$ de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.\\
    
 De ahora en adelante supondremos que la función de utilidad proveniente de una relación preferencial.
  
@@ -94,8 +123,8 @@ definición 2.9 Función de utilidad esperada Von Neumann-Morgenstern (VN-M):
 En un problema de decisión se define utilidad esperada de una lotería $ \Lambda =\{ \lambda_1,...,\lambda_N\} $ dada una acción $a \in A$ dada  como:
 $u_a(L)=\sum_{n=1}^{N}\lambda_n*u(a,n)$
 
+\subsection{Teoría de juegos.}
 
-{\bfseries \large 2.1. Teoría de juegos} \vspace{10mm}
 
 Hasta ahora hemos analizado los problemas de decisión individuales, podemos interpretar como una progresión razonable del problema es añadir personas, es decir, además de una naturaleza aleatoria que puede alterar la decisión que más nos conviene, añadimos a otras personas que pueden alterarla también.
 
