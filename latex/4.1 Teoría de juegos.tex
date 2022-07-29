@@ -1,4 +1,4 @@
-\documentclass[14pt, a4paper]{article} %tamaño mínimo de letra 11pto.
+\documentclass[16pt, a4paper]{article} %tamaño mínimo de letra 11pto.
 \usepackage{amssymb}
 \usepackage{imakeidx}%indice
 \usepackage{amsmath}
@@ -7,6 +7,13 @@
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 \newtheorem{mydef}{Definición}
 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdfpagemode=FullScreen,
+    }
 
 \usepackage[spanish]{babel} %Español 
 \usepackage[utf8]{inputenc} %Para poder poner tildes
@@ -17,6 +24,7 @@
 
 \newtheorem{definicion}{Definición}[section]
 
+\newtheorem{propo}{Proposición}[section]
 
 
 \begin{document}
@@ -26,20 +34,35 @@
 
 \newpage
 
+\section{Introducción}
 
-\section{Base teórica}
+La toma de decisiones está muy presente en muchos de los aspectos de nuestra sociedad, cuando tenemos que decidir que producto comprar, una empresa decidiendo 
+es frecuente que  nuestras decisiones afecten a los demás y viceversa, estudiar la mejor opción puede llegar a resultar complicado. Entre muchas complicaciones que pueden surgir , algunas son que los demás pueden moverse por intereses propios, por sentimientos o puede que incluso nos falten datos o que estos sean imprecisos. Cooperar puede ser una opción pero no siempre hay la confianza para hacerlo
 
 
-En éste capítulo se representan las nociones de teoría de juegos y análisis de sensibilidad, que aplicaremos posteriormente en el caso práctico 
+
+
+
+Cuando se dan estas situaciones, estamos ante un conflicto de intereses que no tiene por qué tener fácil solución, dado que los demás podrían estar 
+
+
+
+
+
+
+
+
+En este tfg estudiaré los problemas que pueden surgir en el caso de que no haya cooperación y tengamos información imperfecta, para tomar la decisión 
+
+\section{Base teórica.}
+
+
+En éste capítulo se representan las nociones de teoría de juegos y análisis de sensibilidad que aplicaremos posteriormente en el caso práctico.
 
 Para la documentación en teoría de juego se han utilizado
 
 
-En teoría de juegos cada jugador intenta conseguir el mejor resultado posible (maximizar su utilidad), pero teniendo en cuenta que el resultado del juego no depende sólo de sus acciones, sino también de las acciones de los otros jugadores. Para maximixar la utilidad supondremos que los jugadores son racionales, buscando un equilibrio en el que a los jugadores no les convenga cambiar su decisión .
 
-
-El campo de estudio de la teoría de juegos es muy general. No es preciso que haya
-entretenimiento, pero sí interacción.
 
 \subsection{Teoría de la utilidad.}
 
@@ -75,75 +98,110 @@ x \preceq y \iff u(x)\le u(y)
 $$
 
 \end{definicion}
-\begin{definicion}[]
 
-\end{definicion}
-
-
-
-
-
-
-
-
-
-
-Proposición 2.6 
+\begin{propo}
 Una relación preferencial puede ser representada mediante una función de utilidad solo si es racional.
+\end{propo}
 
-$x \preceq y \iff x \le y$ .
 
-¿utilidades exponenciales?
+
+
+
+
+
+
+
+%¿utilidades exponenciales?
 
 \subsection{Teoría de la decisión.}
 
 
 La teoría de la decisión analiza la forma de seleccionar una de las alternativas entre varia posibles de manera racional
-
-definición 2.7 problema de decisión  
- Los elementos esenciales de un problema de decisión son:
+\begin{definicion}[Problema de decisión.]
+Un problema de decisión, se encarga de analizar la forma de seleccionar una de las alternativas, en cierta situación, de forma racional.
+Los elementos esenciales de un problema de decisión son:
   
   (I)Un conjunto, $A$, de acciones o alternativas entre las cuales el decisor debe elegir la que le parezca mejor.
   
   (II)Un conjunto, $\Theta$, de estados de la naturaleza , que describen las circunstancias que pueden afectar o influir en la decisiones a adoptar.
   
-(III)Una función de utilidad $u:Ax\Theta \to \R$ de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.\\
+(III)Una función de utilidad $u:A \times  \Theta \to \R$ de modo que  para $\theta \in \Theta $ y $a \in A$, $u(\theta , a)$ mide las consecuencias de cada acción $a$ cuando el estado de la naturaleza es $\theta$.
+\end{definicion}
+
    
 De ahora en adelante supondremos que la función de utilidad proveniente de una relación preferencial.
  
 Nótese que en (I) y en (II) los conjuntos pueden ser finitos, numerables, continuos o arbitrariamente complejos
 
 Puede darse el caso de que el conjunto $\Theta$ tenga asociado una distribución de probabilidad(puede ser objetiva o subjetiva)
+\begin{definicion}[Lotería simple]
+Dado un conjunto de estados de la naturaleza $\Theta =\{ \theta_1,...,\theta_N \} $ $N \in \mathbb{N}$ entonces se llama lotería a la lista $\Lambda =\{ \lambda_1,...,\lambda_N\} $ donde $\lambda_n \ge 0$ $\forall n \in \{ 1,..,N\} $ y $\sum_{n=1}^{N} \lambda_n=1$, donde $\lambda_n$ se interpreta como la probabilidad de que el suceso $\theta_n$ ocurra.
+\end{definicion}
 
-definición 2.8 Lotería simple: Dado un conjunto de estados de la naturaleza $\Theta =\{ \theta_1,...,\theta_N \} $ $N \in \mathbb{N}$ entonces se llama lotería a la lista $\Lambda =\{ \lambda_1,...,\lambda_N\} $ donde $\lambda_n \ge 0$ $\forall n \in \{ 1,..,N\} $ y $\sum_{n=1}^{N} \lambda_n=1$, donde $\lambda_n$ se interpreta como la probabilidad de que el suceso $\theta_n$ ocurra.
 
-
-
-definición 2.9 Función de utilidad esperada Von Neumann-Morgenstern (VN-M):
+\begin{definicion}[Función de utilidad esperada Von Neumann-Morgenstern)]
 En un problema de decisión se define utilidad esperada de una lotería $ \Lambda =\{ \lambda_1,...,\lambda_N\} $ dada una acción $a \in A$ dada  como:
 $u_a(L)=\sum_{n=1}^{N}\lambda_n*u(a,n)$
+
+\end{definicion}
 
 \subsection{Teoría de juegos.}
 
 
-Hasta ahora hemos analizado los problemas de decisión individuales, podemos interpretar como una progresión razonable del problema es añadir personas, es decir, además de una naturaleza aleatoria que puede alterar la decisión que más nos conviene, añadimos a otras personas que pueden alterarla también.
+Hasta ahora hemos analizado los problemas de decisión individuales, podemos interpretar como una progresión razonable del problema es añadir personas, es decir, además de una naturaleza aleatoria que puede alterar la decisión que más nos conviene, añadimos a otras personas con sus propios intereses que pueden alterarla también.
 
-def 2.10 juego :
-definimos juego como la representación formal de una situación donde un número de individuos, mayor que uno, interactuan de manera interdependiente.
+En teoría de juegos cada jugador intenta conseguir el mejor resultado posible (maximizar su utilidad), pero teniendo en cuenta que el resultado del juego no depende sólo de sus acciones, sino también de las acciones de los otros jugadores. Para maximixar la utilidad supondremos que los jugadores son racionales, buscando un equilibrio en el que a los jugadores no les convenga cambiar su decisión .
 
-los elementos básico de un problema en teoría de juego son:
+
+Por último, no olvidemos que el campo de estudio de la teoría de juegos es muy general. No es preciso que haya entretenimiento, pero sí interacción.
+\begin{definicion}[Juego]
+Definimos juego como la representación formal de una situación donde un número de individuos, mayor que uno, interactuan de manera interdependiente.
+Los elementos básico de un problema en teoría de juego son:
+
 (I)Los jugadores: Serán los que tomarán decisiones que modifiquen el juego (se puede considerar a la naturaleza aleatoria como uno).
+
 (II)Las reglas: Definirá lo que puede y no puede hacer cada jugador y en que momento.
+
 (III)Los resultados: Definirá cual es el resultado de cada acción de cada jugador.
+
 (IV)Los beneficios: Define las preferencias de cada jugador sobre los posibles resultados, normalmente se usarán funciones de utilidad para definirlos.
 
+\end{definicion}
 
 
-Tipos de juegos
+\begin{definicion}[Conjunto de información de un jugador]
+Un conjunto de información de un jugador 
+
+\end{definicion}
+
+
+
+%los jugadores son racionales porque patata%
+\subsubsection{Clasificaciones de juegos.}
 
 Hay dos enfoques básicos, juegos cooperativos y no cooperativos.En los juegos cooperativos se analizan las posibilidades de que algunos o todos los jugadores lleguen a un acuerdo sobre qué decisiones va a tomar cada uno, mientras que en el enfoque no cooperativo se analiza qué decisiones tomaría cada jugador en ausencia de acuerdo previo, nosotros nos centraremos en estos últimos.
 
-También se pueden dividir los juego entre juego dinámicos y juegos estáticos
+También se pueden dividir los juego entre juego dinámicos y juegos estáticos:
+
+
+
+\begin{definicion}[Juego simultáneo]
+Los juegos simultáneos son aquellos en los que los jugadores 
+mueven a la vez o desconocen los movimientos anteriores de los 
+otros jugadores. 
+\end{definicion}
+
+
+\begin{definicion}[Juego secuenciales]
+Los juegos secuenciales los jugadores tienen algún 
+conocimiento de las acciones previas. Los jugadores no tienen que 
+tener una información perfecta, es suficiente con que tengan algo 
+de información
+\end{definicion}
+
+
+
+
 
 Hay principalmente dos formas de representar un juego:
 (I)La normal (o estratégica) forma de representación donde la información es descrita mediante una tabla
@@ -156,6 +214,11 @@ es un un grafo con estructura de árbol, consistente en los siguientes elmentos 
 
 
 
+
+\subsection{Análisis de sensibilidad.}
+\begin{definicion}[]
+
+\end{definicion}
 
 
 
