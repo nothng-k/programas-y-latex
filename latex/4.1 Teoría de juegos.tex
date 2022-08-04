@@ -1,11 +1,13 @@
-\documentclass[16pt, a4paper]{article} %tamaño mínimo de letra 11pto.
+\documentclass[a4paper]{report} %tamaño mínimo de letra 11pto.
 \usepackage{amssymb}
 \usepackage{imakeidx}%indice
 \usepackage{amsmath}
 \usepackage{graphicx} 
 \usepackage[T1]{fontenc}
+%\usepackage[decisionutilitycolor]diagrama de influencia%
+
 \makeindex[columns=3, title=Alphabetical Index, intoc]
-\newtheorem{mydef}{Definición}
+
 
 \usepackage{hyperref}
 \hypersetup{
@@ -19,8 +21,7 @@
 \usepackage[utf8]{inputenc} %Para poder poner tildes
 \usepackage{vmargin} %Para modificar los márgene
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
-\setmargins{2.5cm}{1.5cm}{16.5cm}{23.42cm}{10pt}{1cm}{0pt}{2cm}
-%margen izquierdo, superior, anchura del texto, altura del texto, altura de los encabezados, espacio entre el texto y los encabezados, altura del pie de página, espacio entre el texto y el pie de página
+
 
 \newtheorem{definicion}{Definición}[section]
 
@@ -32,9 +33,15 @@
 %%%%%%Portada%%%%%%%
 \tableofcontents
 
+\listoffigures
+\listoftables
+
 \newpage
 
-\section{Introducción}
+\chapter{Resumen}
+
+
+\chapter{Introducción}
 
 La toma de decisiones está muy presente en muchos de los aspectos de nuestra sociedad, cuando tenemos que decidir que producto comprar, una empresa decidiendo 
 es frecuente que  nuestras decisiones afecten a los demás y viceversa, estudiar la mejor opción puede llegar a resultar complicado. Entre muchas complicaciones que pueden surgir , algunas son que los demás pueden moverse por intereses propios, por sentimientos o puede que incluso nos falten datos o que estos sean imprecisos. Cooperar puede ser una opción pero no siempre hay la confianza para hacerlo
@@ -54,17 +61,17 @@ Cuando se dan estas situaciones, estamos ante un conflicto de intereses que no t
 
 En este tfg estudiaré los problemas que pueden surgir en el caso de que no haya cooperación y tengamos información imperfecta, para tomar la decisión 
 
-\section{Base teórica.}
+\chapter{Base teórica.}
 
 
-En éste capítulo se representan las nociones de teoría de juegos y análisis de sensibilidad que aplicaremos posteriormente en el caso práctico.
+En éste capítulo se representan, daremos una breve y necesaria introducción en teoría de la decisión y teoría de la utilidad, posteriormente daremos las nociones de teoría de juegos y análisis de sensibilidad que aplicaremos en el caso práctico.
 
 Para la documentación en teoría de juego se han utilizado
 
 
 
 
-\subsection{Teoría de la utilidad.}
+\section{Teoría de la utilidad.}
 
 empezaremos explicando las relaciones preferenciales(extenderse)
 
@@ -113,7 +120,7 @@ Una relación preferencial puede ser representada mediante una función de utili
 
 %¿utilidades exponenciales?
 
-\subsection{Teoría de la decisión.}
+\section{Teoría de la decisión.}
 
 
 La teoría de la decisión analiza la forma de seleccionar una de las alternativas entre varia posibles de manera racional
@@ -145,7 +152,7 @@ $u_a(L)=\sum_{n=1}^{N}\lambda_n*u(a,n)$
 
 \end{definicion}
 
-\subsection{Teoría de juegos.}
+\section{Teoría de juegos.}
 
 
 Hasta ahora hemos analizado los problemas de decisión individuales, podemos interpretar como una progresión razonable del problema es añadir personas, es decir, además de una naturaleza aleatoria que puede alterar la decisión que más nos conviene, añadimos a otras personas con sus propios intereses que pueden alterarla también.
@@ -169,21 +176,24 @@ Los elementos básico de un problema en teoría de juego son:
 \end{definicion}
 
 
-\begin{definicion}[Conjunto de información de un jugador]
-Un conjunto de información de un jugador 
+Llamaremos nodo a las situaciones de elección de alguno de los jugadores o el final del juego
 
+\begin{definicion}[Conjunto de información de un jugador]
+Un conjunto de información para un jugador es un conjunto de todas las acciones posibles que podrían realizar en una etapa determinada del juego dicho jugador, dado que el jugador no tiene por qué saber lo que han hecho los demás jugadores. Denotamos el conjunto de información que contiene el nodo de decisión $x$ por $H(x)$
 \end{definicion}
 
+ Es decir dependiendo de las acciones de los demás jugadores estaremos en una situación $x$ y podrá hacerse $H(x)$. Dado que un conjunto de información puede contener varios nodos de decisión, se deduce que si
 
+\begin{definicion}[Estrategia]
+Si denotamos el conjunto de información del jugador $i$ por $\mathcal{H_i}$, el conjunto de las posibles acciones por $\mathcal{A} $ y el conjunto de posibles acciones dada la información $H$ por $ C(H) \subset \mathcal{A} $. Entonces definimos estrategia de un jugador $i$ como la función $s_i:\mathcal{H}_i\longrightarrow \mathcal{A}$ con la propiedad de que $s_i(H) \in C(H)~~ \forall H \in \mathcal{H}_i $
+\end{definicion}
 
 %los jugadores son racionales porque patata%
-\subsubsection{Clasificaciones de juegos.}
+\subsection{Clasificaciones de juegos.}
 
 Hay dos enfoques básicos, juegos cooperativos y no cooperativos.En los juegos cooperativos se analizan las posibilidades de que algunos o todos los jugadores lleguen a un acuerdo sobre qué decisiones va a tomar cada uno, mientras que en el enfoque no cooperativo se analiza qué decisiones tomaría cada jugador en ausencia de acuerdo previo, nosotros nos centraremos en estos últimos.
 
-También se pueden dividir los juego entre juego dinámicos y juegos estáticos:
-
-
+Los juegos se pueden dividir los juego entre juego dinámicos y juegos estáticos, aunque se pueden entremezclar los juegos.
 
 \begin{definicion}[Juego simultáneo]
 Los juegos simultáneos son aquellos en los que los jugadores 
@@ -199,23 +209,68 @@ tener una información perfecta, es suficiente con que tengan algo
 de información
 \end{definicion}
 
+Por ejemplo, el ajedrez se trata de un juego secuencia, ya un jugador mueve después del otro, mientras que el piedra, papel y tijeras es un juego simultáneo.
+
+
+\begin{definicion}[Juego con información perfecta y con información imperfecta]
+Los juegos con información imperfecta son los juegos secuenciales, en los que los jugadores no tienen por qué saber  con cada movimiento los movimientos que han realizado los demás jugadores con anterioridad, mientras que los juegos con información perfecta si.
+\end{definicion}
+
+Retomando el ejemplo del ajedrez, éste tendría información perfecta ya que en todo momento se sabe que ha realizado el otro jugador.
+
+\begin{definicion}[Juego de suma cero]
+Es aquel juego que al sumar todos los beneficios de todos los jugadores siempre de la misma constante.
+\end{definicion}
+
+Es decir, los recursos disponibles no se ven alterados por el juego, como en una partida de póker, el dinero en la mesa al final de la partida no cambia, sólo cambia de manos.
+
+Hay muchas más formas de clasificación de juegos como los juegos bayesianos o los juegos de información completa, pero con esto es suficiente para desarrollar el trabajo.
+
+\subsection{Modelos de representación.}
+
+Hay diversas formas de representar un, las clásicas son dos, la forma normal y la forma extensiva (o de árbol), introduciremos otra forma de representación llamada diagrama de influencias:
+
+\subsubsection{Forma normal.}
+
+
+En un juego representado en forma normal, se muestran los jugadores, las estrategias, y las recompensas en una matriz. Un jugador elige las filas y el otro jugador elige las columnas. Cada jugador tiene diversas estrategias, que están especificadas por el número de filas y el número de columnas. Las recompensas que obtienen cada uno de ellos se muestran en el interior de la matriz. El primer número del par dado para cada una de las opciones es la recompensa recibida por el jugador de las filas y el segundo es la recompensa del jugador de las columnas. La representación de una matriz de resultados para un juego en su forma normal sería la siguiente: 
+
+(insertar tabla)
+
+Donde Ai y Bi representan los resultados para cada uno de los jugadores según la opción escogida por ambos. Por esto, la forma normal de representación se suele usar para representar los juegos simultáneos.
+
+Si los jugadores tienen alguna información acerca de las elecciones de otros jugadores el juego se presenta habitualmente en la forma extensa. 
+
+\subsubsection{Forma Extensiva.}
+
+En la representación de juegos en forma extensa los juegos se presentan como árboles en los que cada vértice o nodo representa un punto donde el jugador toma decisiones. El jugador se especifica por un número situado junto al vértice. Las líneas que parten del vértice representan acciones posibles para el jugador. Las recompensas se especifican en las terminaciones de las ramas del árbol. 
+
+Un juego en forma extendida se representa de la forma: 
+
+(tabla)
+
+
+En la representación anterior se muestra la forma extendida de un juego con dos jugadores. El jugador I mueve primero y puede elegir entre el movimiento A o B. El jugador II, según el movimiento del jugador I elige el movimiento C o D.
+
+En función de las opciones elegidas por ambos jugadores se llega a los posibles resultados R1, R2, R3 o R4. En un juego representado en su forma extensa está definido el conjunto de reglas que fijan las posibles jugadas en todo momento, incluyendo qué jugador tiene que mover, la probabilidad de cada una de las opciones si las jugadas se hacen de forma aleatoria y el conjunto de resultados finales que relaciona una ganancia con cada una de las posibles formas de terminar el juego.
+
+Además, se asume que cada jugador tiene unas preferencias para cada jugada de forma que obtenga la máxima ganancia (o las mínimas pérdidas). 
+
+Los juegos representados de esta forma pueden modelar también juegos de movimientos simultáneos. En esos casos se dibuja una línea punteada o un círculo alrededor de dos vértices diferentes para representarlos como parte del mismo conjunto de información (por ejemplo, cuando los jugadores no saben en qué punto se encuentran). 
+
+La representación en forma normal da al matemático una notación sencilla para el estudio de los problemas de equilibrio porque desestima la cuestión de cómo las estrategias son calculadas. Para tratar esto, es más conveniente usar la forma extensa del juego. 
+
+\subsubsection{Diagramas de influencia.}
 
 
 
 
+
+\section{Análisis de sensibilidad.}
 Hay principalmente dos formas de representar un juego:
 (I)La normal (o estratégica) forma de representación donde la información es descrita mediante una tabla
 (II)La forma extensiva de representación donde la información esta explicitamente descrita usando arboles de juego y conjuntos de información.
 
-definición Game tree :
-es un un grafo con estructura de árbol, consistente en los siguientes elmentos :
-
-(I)Orden de movimientos:
-
-
-
-
-\subsection{Análisis de sensibilidad.}
 \begin{definicion}[]
 
 \end{definicion}

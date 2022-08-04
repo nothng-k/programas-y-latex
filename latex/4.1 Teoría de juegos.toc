@@ -1,8 +1,13 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
-\contentsline {section}{\numberline {2}Base teórica.}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Teoría de la utilidad.}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Teoría de la decisión.}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Teoría de juegos.}{3}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Clasificaciones de juegos.}{3}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Análisis de sensibilidad.}{4}{subsection.2.4}%
+\contentsline {chapter}{\numberline {1}Resumen}{4}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Introducción}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Base teórica.}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Teoría de la utilidad.}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Teoría de la decisión.}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Teoría de juegos.}{7}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Clasificaciones de juegos.}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Modelos de representación.}{8}{subsection.3.3.2}%
+\contentsline {subsubsection}{Forma normal.}{8}{section*.4}%
+\contentsline {subsubsection}{Forma Extensiva.}{9}{section*.5}%
+\contentsline {subsubsection}{Diagramas de influencia.}{9}{section*.6}%
+\contentsline {section}{\numberline {3.4}Análisis de sensibilidad.}{9}{section.3.4}%
