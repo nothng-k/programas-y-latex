@@ -27,6 +27,7 @@
 
 \newtheorem{propo}{Proposición}[section]
 
+\newtheorem{teorem}{Teorema}[section]
 
 \begin{document}
 
@@ -182,11 +183,13 @@ Llamaremos nodo a las situaciones de elección de alguno de los jugadores o el f
 Un conjunto de información para un jugador es un conjunto de todas las acciones posibles que podrían realizar en una etapa determinada del juego dicho jugador, dado que el jugador no tiene por qué saber lo que han hecho los demás jugadores. Denotamos el conjunto de información que contiene el nodo de decisión $x$ por $H(x)$
 \end{definicion}
 
- Es decir dependiendo de las acciones de los demás jugadores estaremos en una situación $x$ y podrá hacerse $H(x)$. Dado que un conjunto de información puede contener varios nodos de decisión, se deduce que si
+ Es decir dependiendo de las acciones de los demás jugadores estaremos en  $x$ y podrá tendremos toda la información $H(x)$. 
 
 \begin{definicion}[Estrategia]
-Si denotamos el conjunto de información del jugador $i$ por $\mathcal{H_i}$, el conjunto de las posibles acciones por $\mathcal{A} $ y el conjunto de posibles acciones dada la información $H$ por $ C(H) \subset \mathcal{A} $. Entonces definimos estrategia de un jugador $i$ como la función $s_i:\mathcal{H}_i\longrightarrow \mathcal{A}$ con la propiedad de que $s_i(H) \in C(H)~~ \forall H \in \mathcal{H}_i $
+Si denotamos el conjunto de información del jugador $i$ por $\mathcal{H}_i$, el conjunto de las posibles acciones por $\mathcal{A} $ y el conjunto de posibles acciones dada la información $H$ por $ C(H) \subset \mathcal{A} $. Entonces definimos estrategia de un jugador $i$ como la función $s_i:\mathcal{H}_i\longrightarrow \mathcal{A}$ con la propiedad de que $s_i(H) \in C(H)~~ \forall H \in \mathcal{H}_i $
 \end{definicion}
+
+Diremos qie 
 
 %los jugadores son racionales porque patata%
 \subsection{Clasificaciones de juegos.}
@@ -228,7 +231,7 @@ Hay muchas más formas de clasificación de juegos como los juegos bayesianos o 
 
 \subsection{Modelos de representación.}
 
-Hay diversas formas de representar un, las clásicas son dos, la forma normal y la forma extensiva (o de árbol), introduciremos otra forma de representación llamada diagrama de influencias:
+Hay diversas formas de representar un juego, las clásicas son dos, la forma normal y la forma extensiva (o de árbol), además, introduciremos otra forma de representación llamada diagrama de influencias:
 
 \subsubsection{Forma normal.}
 
@@ -262,20 +265,146 @@ La representación en forma normal da al matemático una notación sencilla para
 
 \subsubsection{Diagramas de influencia.}
 
+Vamos a exponer una froma de representación simple, compacta e intuitiva, éste método de representación que se suele usar en redes bayesianas fué introducido para teoría de jugos por howard en(Howard and netherson)% añadir referencia % 
+aunque solo se usaba para un único agente , posteriormente diferentes   investigadores generalizaron para el caso multiagente.
+
+Un diagrama de influencia se trata de un grafo dirijido donde los nodos son:
+
+1)Cuadrados: Llamado nodo de decisión, usados para representar una decisión.
+
+2)Hexágono: Llamados nodos de utilidad, representan la utilidad obtenida, puede ser la representación de una función de utilidad.
+
+3)Círculo: Llamados nodo de probabilidad, usados para representar un evento aleatorio
+
+Dichos nodos se relacionan entre si mediante flechas (o arcos):
+
+1)Flechas continuas: Si se dirigen a un nodo de probabilidad significa que dicho nodo de probabilidad está condicionado por el nodo anterior y si se dirge a un nodo de decisión significa que dicha decisión depende del nodo anterior
+
+2)Flecha discontinua: Se dirige a un nodo de utilidad y implica que el la utilidad recibida depende del nodo anterior
+
+%añadir tabla explicativa %
+
+Los diagramas bi-agente(BAID) consisten en dos diagramas de influencias acoplados, representando los nodos de cada agente mediante un código de colores.
+
+%añadir tabal de ejemplo %
+
+Los BAID son muy útiles, aunque hay casos en los que un problema de teoría de juegos no podrá ser representado de ésta forma. 
+
+\subsection{Resolución de problemas.}
+
+Hay diversas formas de resolver los diferentes problemas de teoría de juegos, cada una se centra en un aspecto, aquí expondremos aquellas que puedan ser útiles para el ejemplo que expondremos, introduciremos el contexto de equilibrio de nash.
+
+Presentaremos primero, como ya es habitual, las resoluciones para problemas simultáneos, luego los secuenciales y finalmente la mezcla entre ambos.
+
+\subsubsection{Métodos resolutivos para problema secuencial}
+
+Primero resolveremos el problema mediante argumentos de dominación y luego introduciremos el concepto de equilibrio de Nash.
+
+Para resolver los juegos simultáneos los representaremos en forma normal por ser ésta la más adecuada.
+\begin{definicion}[Estrategia dominada]
+En el juego  $G=\lbrace S_1, ..., S_n; u_1, ..., u_n\rbrace$, donde $u_i$ es la función de utilidad del jugador $i$ y $S_i$ su conjunto de posibles acciones, sea $s_i'$ una estrategia del jugador $i$.
+ Decimos que $s_i'$ es una estrategia estrictamente dominada cuando:
+
+
+
+ $
+ u_i(s_1, ..., s_{i-1},s_{i},s_{i+1},...,s_n) \geq u_i(s_1,..., s_{i-1},s_{i}',s_{i+1},...,s_n)
+ $
+
+
+
+se cumple para toda estrategia $s_i$ de dicho jugador y para toda toda combinación de
+estrategias  de los otros jugadores.
+(Es decir, no le conviene usar la estrategia $s_i$ tanto o menos, hagan lo que hagan los otros jugadores.)
+
+ Si todas las desigualdades se cumplen de manera estricta diremos que es estrictamente dominada.
+
+\end{definicion}
+
+\begin{definicion}[Estrategia dominante]
+En el juego $G=\lbrace S_1, ..., S_n; u_1, ..., u_n\rbrace$, donde $u_i$ es la función de utilidad del jugador $i$ y $S_i$ su conjunto de posibles acciones, sea $s_i'$ una estrategia del jugador $i$.
+ Decimos que $s_i'$ es dominante cuando la desigualdad 
+
+
+
+ $
+ u_i(s_1, ..., s_{i-1},s_{i},s_{i+1},...,s_n) \leq u_i(s_1,..., s_{i-1},s_{i}',s_{i+1},...,s_n)
+ $
+
+
+
+se cumple para toda estrategia $s_i$ de dicho jugador y para toda toda combinación de
+estrategias  de los otros jugadores.
+(Es decir, siempre le conviene usar la estrategia $s_i$ al menos tanto como cualquier otra, hagan lo que hagan los otros jugadores.)
+
+ Si todas las desigualdades se cumplen de manera estricta diremos que es estrictamente dominante.
+
+\end{definicion}
+
+Nótese que este tipo de estrategias no tienen porqué existir, ni tiene por qué ser la única
+
+De esta forma, si encontramos una estrategia dominante, podríamos considerarla como una solución al problema de teoría de juegos
+
+Un ejemplo clásico es el del dilema del prisionero, en éste, se ve claro cuales son las estrategias dominantes.
+
+ej dilema del prisionero
+La policía arresta a dos sospechosos. No hay pruebas suficientes para condenarlos y, tras haberlos separado, los visita a cada uno y les ofrece el mismo trato. Si uno confiesa y su cómplice no, el cómplice será condenado a la pena total, diez años, y el primero será liberado. Si uno calla y el cómplice confiesa, el primero recibirá esa pena y será el cómplice quien salga libre. Si ambos confiesan, ambos serán condenados a seis años. Si ambos lo niegan, todo lo que podrán hacer será encerrarlos durante un año por un cargo menor.
+
+(introducir tabla)
+
+
+Encontrar la estrategia dominante puede llegar a ser complicado, además de que este método no se puede usar siempre, por ello hay otros métodos basados en estrategisa dominantes y dominadas que no tienen por qué dar una estrategia dominante pero dan una solución al problema.
+
+Uno de éstos métodos resolutivos es el de eliminación iterativa estricta, consistente en eliminar para cada jugador aquellas estrategias que están estrictamente dominadas por las demás, al ser opciones peores, generamos otro problema sin tener en cuenta estas estrategias dichas estrategias,  repetimos hasta que no se elimine ninguna estrategia, nos quedará para cada jugador un conjunto de estrategias, no tiene por qué dar una solución concreta, por ello no tiene por qué ser útil.
+
+Hay muchos más métodos iterativos que dan soluciones mediante argumentos de dominación, cada uno con sus ventajas e inconvenientes. A las estrategias  puras que sobreviven a estos procesos de eliminación iterativos los llamamos estrategias justificables o racionalizables .
+
+Pese al que el concepto de estrategia pura es uno de fácil interpretación, tal y como hemos mencionado, no siempre da solución a los problemas, por ello existe el concepto de estrategia mixta, que se puede considerar una generalización del primero, el cual introduce aleatoridad al concepto de estrategia.
+
+\begin{definicion}[Estrategia mixta]
+
+Sea $S_i=\lbrace s_i^1,...,s_i^k\rbrace$ el conjunto de estrategias puras del jugador i. Llamamos estrategia mixta del jugador $i$ a toda lotería $\sigma_i=(\sigma_i^1,...,\sigma_i^k)$ sobre $S_i$ es decir, a toda distribución de probabilidad sobre $S_i$. Se interpreta $\sigma_i$ como la estrategia consistente en jugar la estrategia pura $s_i^j$ con probabilidad $\sigma_i^j$ para $j \in \lbrace 1,...,k \rbrace $.
+\end{definicion}
+
+Entre las estrategias mixtas están aquellas que asignan probabilidad 1 a una de las estrategias puras y probabilidad cero a todas las demás. Por tanto, toda estrategia pura es también estrategia mixta.
+
+Ahora introduciremos el concepto de equilibrio de Nash y lo usaremos para encontrar soluciones del problema de teoría de juegos mediante argumentos de aquilibrio.
+
+\begin{definicion}[Equilibrio de Nash]
+
+En el juego  $G=\lbrace S_1, ..., S_n; u_1, ..., u_n\rbrace$ , decimos que el perfil de estrategias mixtas $\sigma ^* =(\sigma _1^*,...,\sigma _i^*,...,\sigma _n^*)$ es un equilibrio de Nash si para cada jugador $i$:
+
+$
+u_i(\sigma _1^*,...,\sigma _{i-1}^*,\sigma _i^*,\sigma _{i+1}^*,...,\sigma _n^*)\geq u_i(\sigma _1^*,...,\sigma _{i-1}^*,\sigma _i,\sigma _{i+1}^*,...,\sigma _n^*) 
+$ para todo $\sigma _i$ de $\Delta (S_i)$.
+
+\end{definicion}
+
+%añadir ejemplo 3.4 del lbro de joaquin%
+
+
+
+\begin{teorem}[Existencia del equilibrio de Nash]
+En todo juego finito exite al menos un equilibrio de Nash en estrategias mixtas.
+\end{teorem}
+
+Este teorema nos indica que da igual el problema de teoría de juegos que tengamos podemos encontrar una solución, aunque el concepto de estrategia mixta no es muy útil a la hora de tomar una decisión firme, si que nos da más información que la estrategia pura, por ello es de gran utilidad 
 
 
 
 
 \section{Análisis de sensibilidad.}
 Hay principalmente dos formas de representar un juego:
+
+
 (I)La normal (o estratégica) forma de representación donde la información es descrita mediante una tabla
+
+
 (II)La forma extensiva de representación donde la información esta explicitamente descrita usando arboles de juego y conjuntos de información.
 
 \begin{definicion}[]
 
 \end{definicion}
-
-
 
 
 

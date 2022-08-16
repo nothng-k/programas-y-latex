@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.15)  4 AUG 2022 12:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.15)  14 AUG 2022 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -415,11 +415,12 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 )
 \c@definicion=\count297
 \c@propo=\count298
+\c@teorem=\count299
 
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count299
+\l__color_backend_stack_int=\count300
 \l__pdf_internal_box=\box98
 ) (4.1 Teoría de juegos.aux
 LaTeX Info: Redefining \. on input line 22.
@@ -427,38 +428,38 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `"4.1 Teoría de juegos.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count300
+\scratchcounter=\count301
 \scratchdimen=\dimen166
 \scratchbox=\box99
-\nofMPsegments=\count301
-\nofMParguments=\count302
+\nofMPsegments=\count302
+\nofMParguments=\count303
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count303
+\MPscratchCnt=\count304
 \MPscratchDim=\dimen167
-\MPnumerator=\count304
-\makeMPintoPDFobject=\count305
+\MPnumerator=\count305
+\makeMPintoPDFobject=\count306
 \everyMPtoPDFconversion=\toks28
 )
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -471,13 +472,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 32.
  (4.1 Teoría de juegos.out) (4.1 Teoría de juegos.out)
 \@outlinefile=\write4
 \openout4 = `"4.1 Teoría de juegos.out"'.
 
-LaTeX Info: Redefining \. on input line 31.
-LaTeX Info: Redefining \% on input line 31.
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
 
 (4.1 Teoría de juegos.toc
 LaTeX Info: Redefining \. on input line 1.
@@ -531,40 +532,40 @@ Cap\'{\i }tulo 3.
 [6
 
 ]
-Overfull \hbox (4.70728pt too wide) in paragraph at lines 145--146
+Overfull \hbox (4.70728pt too wide) in paragraph at lines 146--147
 []\T1/cmr/m/it/10 Dado un con-jun-to de es-ta-dos de la na-tu-ra-le-za $\OT1/cm
 r/m/n/10 ^^B = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^R[]; :::; ^^R[]\OMS/cmsy/m/
 n/10 g$
  []
 
 
-Overfull \hbox (8.47014pt too wide) in paragraph at lines 150--152
+Overfull \hbox (8.47014pt too wide) in paragraph at lines 151--153
 []\T1/cmr/m/it/10 En un pro-
  []
 
 
-Overfull \hbox (3.80453pt too wide) in paragraph at lines 182--183
+Overfull \hbox (3.80453pt too wide) in paragraph at lines 183--184
 []\T1/cmr/m/it/10 Un con-jun-to de in-for-ma-ci�n pa-
  []
 
 [7]
-Overfull \hbox (11.38191pt too wide) in paragraph at lines 216--217
+Overfull \hbox (11.38191pt too wide) in paragraph at lines 219--220
 []\T1/cmr/m/it/10 Los jue-
  []
 
-[8] [9] (4.1 Teoría de juegos.aux
+[8] [9] [10] [11] (4.1 Teoría de juegos.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `"4.1 Teoría de juegos".out' has not changed
 .
-(rerunfilecheck)             Checksum: C6D717DF273C1D88CC3AF74EFF7C7E46;1386.
+(rerunfilecheck)             Checksum: AA732EBB9F6CAE501901D46BB4967BFE;1577.
  ) 
 Here is how much of TeX's memory you used:
- 11652 strings out of 480229
- 184793 string characters out of 2886262
- 496092 words of memory out of 3000000
- 29643 multiletter control sequences out of 15000+600000
+ 11669 strings out of 480229
+ 184988 string characters out of 2886262
+ 495191 words of memory out of 3000000
+ 29651 multiletter control sequences out of 15000+600000
  479362 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,6n,77p,713b,528s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -585,9 +586,9 @@ C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 /cm/cmsy10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "4.1 Teoría de juegos.pdf" (9 pages, 190833 bytes).
+Output written on "4.1 Teoría de juegos.pdf" (11 pages, 207515 bytes).
 PDF statistics:
- 431 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
