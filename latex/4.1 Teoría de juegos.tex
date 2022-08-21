@@ -5,6 +5,8 @@
 \usepackage{graphicx} 
 \usepackage[T1]{fontenc}
 %\usepackage[decisionutilitycolor]diagrama de influencia%
+\usepackage[utf8]{inputenc}
+
 
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 
@@ -19,8 +21,13 @@
 
 \usepackage[spanish]{babel} %Español 
 \usepackage[utf8]{inputenc} %Para poder poner tildes
+\usepackage{biblatex}%Para poner referencias
 \usepackage{vmargin} %Para modificar los márgene
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+
+\addbibresource{bibliografia.bib}
+
 
 
 \newtheorem{definicion}{Definición}[section]
@@ -30,6 +37,43 @@
 \newtheorem{teorem}{Teorema}[section]
 
 \begin{document}
+
+%%%%%%Portada%%%%%%%
+\begin{titlepage}
+\centering
+{ \bfseries \Large UNIVERSIDAD COMPLUTENSE DE MADRID}
+\vspace{0.5cm}
+
+{\bfseries  \Large FACULTAD DE CIENCIAS MATEMÁTICAS} 
+\vspace{1cm}
+
+{\large DEPARTAMENTO DE ESTADÍSTICA E INVESTIGACIÓN OPERATIVA}
+\vspace{0.8cm}
+
+%%%%Logo Complutense%%%%%
+{\includegraphics[width=0.35\textwidth]{logo_UCM}} %Para ajustar la portada a una sola página se puede reducir el tamaño del logo
+\vspace{0.8cm}
+
+{\bfseries \Large TRABAJO DE FIN DE GRADO}
+\vspace{2cm}
+
+{\Large Código de TFG:  [C\'odigo TFG] } \vspace{5mm}
+
+{\Large Teoría de juegos: En búsqueda de estabilidad(y robustez).}\vspace{5mm}
+
+{\Large [Título de TFG en ingl\'es (el que aparece en la FICHA)]}\vspace{5mm}
+
+{\Large Supervisor/es: Jorge González Ortega }\vspace{20mm} 
+
+{\bfseries \LARGE Manuel Grau Roldán}\vspace{5mm} 
+
+{\large Grado en Matemáticas y Estadística.}\vspace{5mm} 
+
+{\large Curso acad\'emico 2021-22}\vspace{5mm} 
+
+{\large Convocatoria Septiembre de 2022}\vspace{5mm} 
+
+\end{titlepage}
 
 %%%%%%Portada%%%%%%%
 \tableofcontents
@@ -65,7 +109,7 @@ En este tfg estudiaré los problemas que pueden surgir en el caso de que no haya
 \chapter{Base teórica.}
 
 
-En éste capítulo se representan, daremos una breve y necesaria introducción en teoría de la decisión y teoría de la utilidad, posteriormente daremos las nociones de teoría de juegos y análisis de sensibilidad que aplicaremos en el caso práctico.
+En éste capítulo daremos una breve y necesaria introducción en teoría de la decisión y teoría de la utilidad, posteriormente daremos las nociones de teoría de juegos y análisis de sensibilidad que aplicaremos en el caso práctico.
 
 Para la documentación en teoría de juego se han utilizado
 
@@ -73,6 +117,8 @@ Para la documentación en teoría de juego se han utilizado
 
 
 \section{Teoría de la utilidad.}
+
+En esta sección daremos una breve introducción a la teoría de la utilidad 
 
 empezaremos explicando las relaciones preferenciales(extenderse)
 
@@ -296,7 +342,7 @@ Hay diversas formas de resolver los diferentes problemas de teoría de juegos, c
 
 Presentaremos primero, como ya es habitual, las resoluciones para problemas simultáneos, luego los secuenciales y finalmente la mezcla entre ambos.
 
-\subsubsection{Métodos resolutivos para problema secuencial}
+\subsubsection{Métodos resolutivos para problema simultáneo}
 
 Primero resolveremos el problema mediante argumentos de dominación y luego introduciremos el concepto de equilibrio de Nash.
 
@@ -380,7 +426,7 @@ $ para todo $\sigma _i$ de $\Delta (S_i)$.
 
 \end{definicion}
 
-%añadir ejemplo 3.4 del lbro de joaquin%
+%añadir ejemplo 3.4 del libro de joaquin%
 
 
 
@@ -390,7 +436,10 @@ En todo juego finito exite al menos un equilibrio de Nash en estrategias mixtas.
 
 Este teorema nos indica que da igual el problema de teoría de juegos que tengamos podemos encontrar una solución, aunque el concepto de estrategia mixta no es muy útil a la hora de tomar una decisión firme, si que nos da más información que la estrategia pura, por ello es de gran utilidad 
 
+\subsubsection{Métodos resolutivos mediante árboles de decisión}
 
+
+\subsubsection{Métodos resolutivos mediante diagramas de influencia.}
 
 
 \section{Análisis de sensibilidad.}
@@ -402,14 +451,16 @@ Hay principalmente dos formas de representar un juego:
 
 (II)La forma extensiva de representación donde la información esta explicitamente descrita usando arboles de juego y conjuntos de información.
 
+\cite{MasColell1997}
+
 \begin{definicion}[]
 
 \end{definicion}
 
 
-
-
 \newpage
+
+\printbibliography
 
 %%Inicio: 
 

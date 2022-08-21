@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.15)  14 AUG 2022 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.7.15)  19 AUG 2022 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -220,6 +220,11 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ) (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks24
+\inpenc@posthook=\toks25
+)
 \"4.1 Teoría de juegos"@idxfile=\write3
 \openout3 = `"4.1 Teoría de juegos.idx"'.
 
@@ -367,7 +372,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip54
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 18.
+Package hyperref Info: Option `colorlinks' set `false' on input line 20.
 
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2022/06/26 3.77 The Babel package
@@ -389,7 +394,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.l
 df
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
-\es@quottoks=\toks24
+\es@quottoks=\toks26
 \es@quotdepth=\count296
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
@@ -401,11 +406,259 @@ Package babel Info: Making > an active character on input line 722.
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
 )
-(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks25
-\inpenc@posthook=\toks26
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count297
 )
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count298
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count299
+\c@listtotal=\count300
+\c@listcount=\count301
+\c@liststart=\count302
+\c@liststop=\count303
+\c@citecount=\count304
+\c@citetotal=\count305
+\c@multicitecount=\count306
+\c@multicitetotal=\count307
+\c@instcount=\count308
+\c@maxnames=\count309
+\c@minnames=\count310
+\c@maxitems=\count311
+\c@minitems=\count312
+\c@citecounter=\count313
+\c@maxcitecounter=\count314
+\c@savedcitecounter=\count315
+\c@uniquelist=\count316
+\c@uniquename=\count317
+\c@refsection=\count318
+\c@refsegment=\count319
+\c@maxextratitle=\count320
+\c@maxextratitleyear=\count321
+\c@maxextraname=\count322
+\c@maxextradate=\count323
+\c@maxextraalpha=\count324
+\c@abbrvpenalty=\count325
+\c@highnamepenalty=\count326
+\c@lownamepenalty=\count327
+\c@maxparens=\count328
+\c@parenlevel=\count329
+\blx@tempcnta=\count330
+\blx@tempcntb=\count331
+\blx@tempcntc=\count332
+\c@blx@maxsection=\count333
+\blx@maxsegment@0=\count334
+\blx@notetype=\count335
+\blx@parenlevel@text=\count336
+\blx@parenlevel@foot=\count337
+\blx@sectionciteorder@0=\count338
+\blx@sectionciteorderinternal@0=\count339
+\blx@entrysetcounter=\count340
+\blx@biblioinstance=\count341
+\labelnumberwidth=\skip55
+\labelalphawidth=\skip56
+\biblabelsep=\skip57
+\bibitemsep=\skip58
+\bibnamesep=\skip59
+\bibinitsep=\skip60
+\bibparsep=\skip61
+\bibhang=\skip62
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language4
+\c@mincomprange=\count342
+\c@maxcomprange=\count343
+\c@mincompwidth=\count344
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2022/07/12 v3.18b biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count345
+\c@savedafterword=\count346
+\c@annotator=\count347
+\c@savedannotator=\count348
+\c@author=\count349
+\c@savedauthor=\count350
+\c@bookauthor=\count351
+\c@savedbookauthor=\count352
+\c@commentator=\count353
+\c@savedcommentator=\count354
+\c@editor=\count355
+\c@savededitor=\count356
+\c@editora=\count357
+\c@savededitora=\count358
+\c@editorb=\count359
+\c@savededitorb=\count360
+\c@editorc=\count361
+\c@savededitorc=\count362
+\c@foreword=\count363
+\c@savedforeword=\count364
+\c@holder=\count365
+\c@savedholder=\count366
+\c@introduction=\count367
+\c@savedintroduction=\count368
+\c@namea=\count369
+\c@savednamea=\count370
+\c@nameb=\count371
+\c@savednameb=\count372
+\c@namec=\count373
+\c@savednamec=\count374
+\c@translator=\count375
+\c@savedtranslator=\count376
+\c@shortauthor=\count377
+\c@savedshortauthor=\count378
+\c@shorteditor=\count379
+\c@savedshorteditor=\count380
+\c@labelname=\count381
+\c@savedlabelname=\count382
+\c@institution=\count383
+\c@savedinstitution=\count384
+\c@lista=\count385
+\c@savedlista=\count386
+\c@listb=\count387
+\c@savedlistb=\count388
+\c@listc=\count389
+\c@savedlistc=\count390
+\c@listd=\count391
+\c@savedlistd=\count392
+\c@liste=\count393
+\c@savedliste=\count394
+\c@listf=\count395
+\c@savedlistf=\count396
+\c@location=\count397
+\c@savedlocation=\count398
+\c@organization=\count399
+\c@savedorganization=\count400
+\c@origlocation=\count401
+\c@savedoriglocation=\count402
+\c@origpublisher=\count403
+\c@savedorigpublisher=\count404
+\c@publisher=\count405
+\c@savedpublisher=\count406
+\c@language=\count407
+\c@savedlanguage=\count408
+\c@origlanguage=\count409
+\c@savedoriglanguage=\count410
+\c@pageref=\count411
+\c@savedpageref=\count412
+\shorthandwidth=\skip63
+\shortjournalwidth=\skip64
+\shortserieswidth=\skip65
+\shorttitlewidth=\skip66
+\shortauthorwidth=\skip67
+\shorteditorwidth=\skip68
+\locallabelnumberwidth=\skip69
+\locallabelalphawidth=\skip70
+\localshorthandwidth=\skip71
+\localshortjournalwidth=\skip72
+\localshortserieswidth=\skip73
+\localshorttitlewidth=\skip74
+\localshortauthorwidth=\skip75
+\localshorteditorwidth=\skip76
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2022/07/12 v3.18b biblatex compatibility (PK/MW)
+\c@textcitecount=\count413
+\c@textcitetotal=\count414
+\c@textcitemaxnames=\count415
+\c@biburlbigbreakpenalty=\count416
+\c@biburlbreakpenalty=\count417
+\c@biburlnumpenalty=\count418
+\c@biburlucpenalty=\count419
+\c@biburllcpenalty=\count420
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count421
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bb
+x
+File: numeric.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
+bx
+File: standard.bbx 2022/07/12 v3.18b biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count422
+\c@bbx:relatedtotal=\count423
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cb
+x
+File: numeric.cbx 2022/07/12 v3.18b biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2022-07-04 L3 programming layer (loader) 
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count424
+\l__pdf_internal_box=\box98
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2022-07-04 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
+.sty
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+Package: xparse 2022-06-22 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
+
+))
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/vmargin\vmargin.sty
 Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 
@@ -413,53 +666,54 @@ Package: vmargin 2004/07/15 V2.5 set document margins (VK)
 \PaperWidth=\dimen164
 \PaperHeight=\dimen165
 )
-\c@definicion=\count297
-\c@propo=\count298
-\c@teorem=\count299
+\c@definicion=\count425
+\c@propo=\count426
+\c@teorem=\count427
 
-(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
-tex.def
-File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count300
-\l__pdf_internal_box=\box98
-) (4.1 Teoría de juegos.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count428
+\@quotereset=\count429
+(4.1 Teoría de juegos.aux
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
 )
 \openout1 = `"4.1 Teoría de juegos.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count301
+\scratchcounter=\count430
 \scratchdimen=\dimen166
 \scratchbox=\box99
-\nofMPsegments=\count302
-\nofMParguments=\count303
+\nofMPsegments=\count431
+\nofMParguments=\count432
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count304
+\MPscratchCnt=\count433
 \MPscratchDim=\dimen167
-\MPnumerator=\count305
-\makeMPintoPDFobject=\count306
+\MPnumerator=\count434
+\makeMPintoPDFobject=\count435
 \everyMPtoPDFconversion=\toks28
 )
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -472,15 +726,40 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 39.
  (4.1 Teoría de juegos.out) (4.1 Teoría de juegos.out)
-\@outlinefile=\write4
-\openout4 = `"4.1 Teoría de juegos.out"'.
+\@outlinefile=\write5
+\openout5 = `"4.1 Teoría de juegos.out"'.
 
-LaTeX Info: Redefining \. on input line 32.
-LaTeX Info: Redefining \% on input line 32.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
+Package biblatex Info: Trying to load language 'spanish'...
+Package biblatex Info: ... file 'spanish.lbx' found.
 
-(4.1 Teoría de juegos.toc
+(C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\spanish.lb
+x
+File: spanish.lbx 2022/07/12 v3.18b biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `"4.1 Teoría de juegos.bcf"'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file '"4.1 Teoría de juegos".bbl' found.
+ (4.1 Teoría de juegos.bbl)
+Package biblatex Info: Reference section=0 on input line 39.
+Package biblatex Info: Reference segment=0 on input line 39.
+<logo_UCM.png, id=43, 284.5029pt x 261.6174pt>
+File: logo_UCM.png Graphic file (type png)
+<use logo_UCM.png>
+Package pdftex.def Info: logo_UCM.png  used on input line 54.
+(pdftex.def)             Requested size: 149.60364pt x 137.56674pt.
+ [1
+
+{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo_UCM.p
+ng>] (4.1 Teoría de juegos.toc
+LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
@@ -493,29 +772,35 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
 (C:\Users\manue\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-\tf@toc=\write5
-\openout5 = `"4.1 Teoría de juegos.toc"'.
+\tf@toc=\write6
+\openout6 = `"4.1 Teoría de juegos.toc"'.
 
 
-[1
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.81 \listoffigures
+                    [1
 
-
-{C:/Users/manue/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(4.1 Teoría de juegos.lof
+] (4.1 Teoría de juegos.lof
+LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
-\tf@lof=\write6
-\openout6 = `"4.1 Teoría de juegos.lof"'.
+\tf@lof=\write7
+\openout7 = `"4.1 Teoría de juegos.lof"'.
 
  [2
 
-] (4.1 Teoría de juegos.lot
+]
+(4.1 Teoría de juegos.lot
+LaTeX Info: Redefining \sptext on input line 1.
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
-\tf@lot=\write7
-\openout7 = `"4.1 Teoría de juegos.lot"'.
+\tf@lot=\write8
+\openout8 = `"4.1 Teoría de juegos.lot"'.
 
  [3
 
@@ -532,63 +817,109 @@ Cap\'{\i }tulo 3.
 [6
 
 ]
-Overfull \hbox (4.70728pt too wide) in paragraph at lines 146--147
+Overfull \hbox (4.70728pt too wide) in paragraph at lines 192--193
 []\T1/cmr/m/it/10 Dado un con-jun-to de es-ta-dos de la na-tu-ra-le-za $\OT1/cm
 r/m/n/10 ^^B = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^R[]; :::; ^^R[]\OMS/cmsy/m/
 n/10 g$
  []
 
 
-Overfull \hbox (8.47014pt too wide) in paragraph at lines 151--153
+Overfull \hbox (8.47014pt too wide) in paragraph at lines 197--199
 []\T1/cmr/m/it/10 En un pro-
  []
 
 
-Overfull \hbox (3.80453pt too wide) in paragraph at lines 183--184
+Overfull \hbox (3.80453pt too wide) in paragraph at lines 229--230
 []\T1/cmr/m/it/10 Un con-jun-to de in-for-ma-ci�n pa-
  []
 
 [7]
-Overfull \hbox (11.38191pt too wide) in paragraph at lines 219--220
+Overfull \hbox (11.38191pt too wide) in paragraph at lines 265--266
 []\T1/cmr/m/it/10 Los jue-
  []
 
-[8] [9] [10] [11] (4.1 Teoría de juegos.aux
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+[8] [9] [10]
+
+LaTeX Warning: Citation 'MasColell1997' on page 11 undefined on input line 454.
+
+
+[11]
+
+! LaTeX Error: Can be used only in preamble.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.464 \bibliography
+                   {lesson7a1}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package biblatex Error: '\bibliographystyle' invalid for 'biblatex'.
+
+See the biblatex package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.465 \bibliographystyle{ieeetr}
+                                
+Use the package option 'style' instead.
+I'm ignoring this command.
+
+[12] (4.1 Teoría de juegos.aux
+LaTeX Info: Redefining \sptext on input line 23.
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
 )
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `"4.1 Teoría de juegos".out' has not changed
 .
 (rerunfilecheck)             Checksum: AA732EBB9F6CAE501901D46BB4967BFE;1577.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                "4.1 Teoría de juegos"
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to '"4.1 Teoría de juegos".run.xml'.
+\openout1 = `"4.1 Teoría de juegos.run.xml"'.
+
  ) 
 Here is how much of TeX's memory you used:
- 11669 strings out of 480229
- 184988 string characters out of 2886262
- 495191 words of memory out of 3000000
- 29651 multiletter control sequences out of 15000+600000
- 479362 words of font info for 47 fonts, out of 8000000 for 9000
+ 19198 strings out of 480229
+ 334988 string characters out of 2886262
+ 1051619 words of memory out of 3000000
+ 37116 multiletter control sequences out of 15000+600000
+ 480139 words of font info for 48 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,6n,77p,713b,528s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,6n,77p,713b,1891s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
 1200.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1440.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx2074.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/manue/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/manue/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manue/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users
-/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "4.1 Teoría de juegos.pdf" (11 pages, 207515 bytes).
+/dpi600\ecbx2074.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\manue\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\manue\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\manue\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\manue\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\manue\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/manue/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/User
+s/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manue/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/manue/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "4.1 Teoría de juegos.pdf" (13 pages, 420491 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 607 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

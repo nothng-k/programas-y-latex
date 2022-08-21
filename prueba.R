@@ -79,7 +79,7 @@ price_control_ps<-function(p, m=2000,c_ps, c_xb){
 }
 
 price_control_xb<-function(p, m=2000,c_ps, c_xb){
-  m=m*dicotomic_function_ps(c_ps ,c_xb)
+  m=m*dicotomic_function_xb(c_ps ,c_xb)
   return(0+
            ( p < m )*
            ( 

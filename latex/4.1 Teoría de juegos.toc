@@ -11,5 +11,7 @@
 \contentsline {subsubsection}{Forma Extensiva.}{9}{section*.5}%
 \contentsline {subsubsection}{Diagramas de influencia.}{9}{section*.6}%
 \contentsline {subsection}{\numberline {3.3.3}Resolución de problemas.}{10}{subsection.3.3.3}%
-\contentsline {subsubsection}{Métodos resolutivos para problema secuencial}{10}{section*.7}%
+\contentsline {subsubsection}{Métodos resolutivos para problema simultáneo}{10}{section*.7}%
+\contentsline {subsubsection}{Métodos resolutivos mediante árboles de decisión}{11}{section*.8}%
+\contentsline {subsubsection}{Métodos resolutivos mediante diagramas de influencia.}{11}{section*.9}%
 \contentsline {section}{\numberline {3.4}Análisis de sensibilidad.}{11}{section.3.4}%
