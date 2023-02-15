@@ -1,0 +1,542 @@
+---
+title: "Untitled"
+author: "Manuel Grau Roldán"
+date: "2023-01-29"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, engine.path=list(
+  python = "C://Users//manue//anaconda3//python.exe")
+
+) 
+#install.packages("gt")
+#install.packages("gtExtras")
+library(gtExtras)
+library(gt)
+library(ggplot2)
+library(stats, methods,grDevices )
+library(reticulate)#para usar python
+library(modeest)#para calcular la moda
+```
+
+```{r}
+graficador <- function(a, b, l, f) {
+    x <- seq(a, b, length.out = l)
+    y <- x
+    z <- outer(x, y, f)
+    z[z < 0] = 0
+    op <- par(bg = "white")
+    persp(x, y, z, theta = 30, phi = 30, expand = 0.5,
+        col = "lightblue", ltheta = 120, shade = 0.75,
+        zlab = f, xlab = formalArgs(args(f))[1],
+        ylab = formalArgs(args(f))[2]) -> res
+}
+
+```
+
+```{r}
+tabla <- function(dataframe) 
+  # Genera tablas con código de colores para un dataframe
+  {
+    gt(dataframe, rownames_to_stub = TRUE) %>%
+        gt_color_rows(columns = dimnames.data.frame(dataframe)[[2]],
+            palette = "ggsci::blue_material", domain = range(dataframe)) %>%
+        gt_theme_nytimes()
+}
+```
+
+FUNCION DE PRECIO función relu
+
+```{r}
+price_function <- function(p_1, p_2, k = 400)
+{
+    return(1 - (exp(p_1/k)/(exp(p_1/k) + exp(p_2/k))))
+}
+graficador(3, 1000, 60, "price_function")
+
+```
+
+FUNCION DE DECISON
+
+```{r}
+dicotomic_function_ps <- function(c_ps, c_xb, l_ps = 0.8) {
+  return((1 - c_ps) * (1 - c_xb) * 0.75 +
+           c_ps * (1 - c_xb) * 0.9 +
+           c_xb * (1 - c_ps) * 0.3 +
+           c_ps * c_xb * l_ps)
+}
+
+dicotomic_function_xb <- function(c_ps, c_xb, l_xb = 0.9) {
+  return((1 - c_ps) * (1 - c_xb) * 0.7 +
+           c_ps * (1 - c_xb) * 0.4 +
+           c_xb * (1 - c_ps) * 0.8 +
+           c_ps * c_xb * l_xb)
+}
+ 
+```
+
+CONTROL DE PRECIO
+
+```{r}
+
+
+price_control_ps <- function(p, m = 2000, c_ps, c_xb,
+    l_ps = 0.8) {
+    m = m * dicotomic_function_ps(c_ps, c_xb, l_ps = l_ps)
+    return(0 + (p <= m) * (p>=0) *((-(p - m)/m)^2))
+}
+price_control_xb <- function(p, m = 2000, c_ps, c_xb,
+    l_xb = 0.9) {
+    m = m * dicotomic_function_xb(c_ps, c_xb, l_xb = l_xb)
+    return(0 + (p <= m) * (p>=0) * (((p - m)/m)^2))
+}
+```
+
+FUNCIONES DE VENTAS
+
+```{r}
+ventas_ps <- function(p_ps, p_xb, c_ps = 1, c_xb = 0,
+    k = 400, m = 2000, l_ps = 0.8)
+    {
+    return(5e+07 * dicotomic_function_ps(c_ps, c_xb,
+        l_ps = l_ps) * price_function(p_ps, p_xb, k) *
+        price_control_ps(p_ps, m, c_ps, c_xb, l_ps = l_ps))
+}
+ventas_xb <- function(p_ps, p_xb, c_ps = 0, c_xb = 0,
+    k = 400, m = 2000, l_xb = 0.9)
+    {
+    return(5e+07 * dicotomic_function_xb(c_ps, c_xb,
+        l_xb = l_xb) * price_function(p_xb, p_ps, k) *
+        price_control_xb(p_xb, m, c_ps, c_xb, l_xb = l_xb))
+}
+
+
+```
+
+FUNCIONES DE BENEFICIOS
+
+```{r}
+beneficios_ps <- function(p_ps, p_xb, c_ps = 0, c_xb = 0,
+    k = 400, m = 2000, l_ps = 0.8)
+    {
+    ventas_ps(p_ps, p_xb, c_ps = c_ps, c_xb = c_xb, k = k,
+        m = m, l_ps = l_ps) * (p_ps - 100)
+}
+
+beneficios_xb <- function(p_ps, p_xb, c_ps = 0, c_xb = 0,
+    k = 400, m = 2000, l_xb = 0.9)
+    {
+    ventas_xb(p_ps, p_xb, c_ps = c_ps, c_xb = c_xb, k = k,
+        m = m, l_xb = l_xb) * (p_xb - 100)
+}
+
+graficador(1, 1000, 60, "beneficios_ps")
+graficador(1, 1000, 60, "beneficios_xb")
+```
+
+FUNCIONES DE RESOLUCIÓN
+
+```{r}
+# la siguiente función calcula el equilibrio de Nash
+# del problema de Bertrand
+resolucion  <- function(c_ps = 0,
+                       c_xb = 0,
+                       k = 400,
+                       m = 2000,
+                       x0 = 0,
+                       y0 = 0,
+                       N = 100,
+                       l_ps = 0.8,
+                       l_xb = 0.9,
+                       eps=10^-4)
+  # x0 e y0 corresponde al inicio
+  # N corresponde al número de iteraciones
+  # usaremos por defecto N = 100 por funcionar bien
+{
+  # generamos una matrix que contenga todas las iteraciones
+  z = matrix(0, nrow = 2, ncol = N + 1)
+  z[, 1] <- c(x0, y0)# almacenamos el punto inicial
+  i = 0
+  l=TRUE#criterio de parada por diverger
+  aux2=TRUE #criterio de parada al converger
+  # iniciamos el bucle
+  while (all(i < N, aux2,l))
+  {
+    i = i + 1
+    #almacenamos el óptimo para p_p
+    aux = optim(z[1, i], function(x)
+    {
+      -beneficios_ps(x, z[2, i], c_ps,
+                     c_xb, k, m, l_ps = l_ps)
+    })$par
+    #comprobamos que no sea demasiado alto
+    if (aux <= (m * dicotomic_function_ps(c_ps, c_xb, l_ps = l_ps))) {
+      z[1, i + 1] <- aux
+    } else{
+      l=FALSE
+    }
+    
+    #almacenamos el óptimo para p_x
+    
+    aux = optim(z[2, i], function(y)
+    {
+      -beneficios_xb(z[1, i + 1], y,
+                     c_ps, c_xb, k, m, l_xb = l_xb)
+    })$par
+    if (aux <= (m * dicotomic_function_xb(c_ps, c_xb, l_xb = l_xb))) {
+      z[2, i + 1] <- aux
+    } else{
+      l=FALSE
+    }
+    aux2=dist(z[1, i + 1]-z[1, i])>eps
+  }
+
+  #nos devuelve los beneficios de cada empresa
+  # y los precios de las consolas del equilibrio de Nash
+  return(list(
+    'beneficios' = c(
+      beneficios_ps(
+        p_ps = z[1,
+                 i + 1],
+        p_xb = z[2, i + 1],
+        c_ps = c_ps,
+        c_xb = c_xb,
+        k,
+        m,
+        l_ps = l_ps
+      ),
+      beneficios_xb(
+        p_ps = z[1, i + 1],
+        p_xb = z[2, i + 1],
+        c_ps = c_ps,
+        c_xb = c_xb,
+        k,
+        m,
+        l_xb = l_xb
+      )
+    ),
+    'precios' = z[, i + 1],
+    'converge' = l
+  ))
+}
+```
+
+
+
+SOLUCIÓN
+
+
+```{r, results='hide'}
+# La siguiente función calcula la p y la q 
+# de un problema 2x2
+solucion2 <- function(e1,e2) {
+# importamos las funciones de python
+np <- import("numpy", convert = FALSE)
+nash <- import("nashpy", convert = FALSE)
+# creamos el juego
+np1<-np$array(e1)
+
+np2<-np$array(e2)
+
+jg<- nash$Game(np1,np2)
+#obtenemos el equilibrio 
+equilibria <- jg$support_enumeration(non_degenerate = FALSE)
+for (i in iterate(equilibria)){
+
+}
+#el último i contiene la estrategia mixta, si la hay
+  return(list('p' = py_to_r(i)[[1]][1],
+              'q' = py_to_r(i)[[2]][1]))
+}
+
+```
+
+
+
+```{r, results='hide'}
+# esta función resuelve el problema completo
+# devolviendonos la solución del mismo 
+
+solucion <- function(k = 400,
+                     m = 2000,
+                     l_ps = 0.8,
+                     l_xb = 0.9) {
+  # calculamos los diferentes ejercicios de Bertrand
+  precios1=matrix(
+        nrow = 2,
+        ncol = 2,
+        dimnames = list(
+          c("No hace crossplay", "Hace crossplay"),
+          c("No hace crossplay", "Hace crossplay"))
+        )
+  precios2=precios1
+  beneficios1=precios1
+  beneficios2=precios1
+  for (i in 0:1) {
+    for (j in 0:1){
+      r= resolucion(
+        k = k,
+        m = m,
+        c_ps = j ,
+        c_xb = i,
+        l_ps = l_ps,
+        l_xb = l_xb
+      )
+    precios1[j+1,i+1]=r$precios[1]
+    precios2[j+1,i+1]=r$precios[2]
+    beneficios1[j+1,i+1]=round(r$beneficios[1])
+    beneficios2[j+1,i+1]=round(r$beneficios[2])
+    }}
+  # usamos el programa anterior para calcular 
+  # la solución del problema 2x2
+  solution2x2 = solucion2(precios1, precios2)
+  p = solution2x2$p
+  q = solution2x2$q
+  # nos devuelve la solución junto con los 
+  # beneficios esperados
+  return(
+    list(
+      'p' = p,
+      'q' = q,
+      'beneficiosesperados' = list(
+        'ps' = cbind(p, 1 - p) %*%
+          beneficios1 %*%
+          c(q, 1 - q),
+        'xb' = cbind(p, 1 - p) %*%
+          beneficios2 %*%
+          c(q, 1 - q)
+      ),
+      'beneficiosps' = as.data.frame(beneficios1),
+      'beneficiosxb' = as.data.frame(beneficios2),
+      #obtenemos los precios que pone cada jugador en cada opción
+      'preciosps' = as.data.frame(precios1),
+      'preciosxb' = as.data.frame(precios2)
+    )
+  )
+}
+
+```
+
+```{r}
+sol =solucion()
+```
+
+```{r}
+sol$beneficiosesperados
+sol$p
+sol$q
+sol$preciosps
+sol$preciosxb
+sol$beneficiosps
+sol$beneficiosxb
+```
+
+ANÁLISIS DE SENSIBILIDAD
+
+```{r}
+# Función que realiza un mallado 
+# de la k y la m 
+sensitivity <- function(lstk, lstm)
+{
+    #usamos las variables auxiliares 
+    psolaux = c()# almacena las p obtenidas
+    qsolaux = c()# almacena las q obtenidas
+    pssolaux = c()# almacena los beneficios de 
+    # ps obtenidos
+    xbsolaux = c()# almacena los beneficios de 
+    # xb obtenidos
+    ps2solaux = c()# almacena los precios de 
+    # ps obtenidos para c_ps=0 y c_xb=1
+    xb2solaux = c()# almacena los precios de 
+    # xb obtenidos para c_ps=0 y c_xb=1
+    for (i in lstm)# bucle para la m
+    {
+        for (j in lstk)# bucle para la k
+        {   # obtenemos la solución
+            sol = solucion(k = j, m = i)
+            # almacenamos los datos que interesan
+            psolaux = c(psolaux, round(sol$p,
+                4))
+            qsolaux = c(qsolaux, round(sol$q,
+                4))
+            pssolaux = c(pssolaux,
+                round(sol$beneficiosesperados$ps,
+                  4))
+            xbsolaux = c(xbsolaux,
+                round(sol$beneficiosesperados$xb,
+                  4))
+            ps2solaux = c(ps2solaux,
+                round(sol$preciosps[2,
+                  2], 2))
+            xb2solaux = c(xb2solaux,
+                round(sol$preciosxb[2,
+                  2], 2))
+        }
+    }
+    # transformamos los datos a dataframes
+    plista = as.data.frame(matrix(psolaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    qlista = as.data.frame(matrix(qsolaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    pslista = as.data.frame(matrix(pssolaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    xblista = as.data.frame(matrix(xbsolaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    xb2lista = as.data.frame(matrix(xb2solaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    ps2lista = as.data.frame(matrix(ps2solaux,
+        nrow = length(lstk), ncol = length(lstm),
+        dimnames = list(paste("k=",
+            lstk), paste("m=", lstm))))
+    # devolvemos los diferentes dataframes
+    return(list('p' = plista, 'q' = qlista,
+        'beneficiosps' = pslista, 'beneficiosxb' = xblista,
+        'preciosps' = ps2lista, 'preciosxb' = xb2lista))
+}
+```
+
+```{r}
+# creamos el mallado
+lstk = seq(200, 600, length.out = 9)
+lstm = seq(1000, 3000, length.out = 9)
+# evaluamos el mallado 
+lista = sensitivity(lstk, lstm)
+```
+
+```{r}
+# obtenemos todas las tablas
+
+tabla(lista[["p"]])
+tabla(lista[["q"]])
+tabla(lista[['beneficiosps']])
+tabla(lista[['beneficiosxb']])
+tabla(lista[['preciosps']])
+tabla(lista[['preciosxb']])
+```
+
+```{r}
+# Función que realiza un mallado
+# de la l_ps y la l_xb
+sensitivity2 <- function(n,a,b)
+{
+  lstps=rbeta(n,a,b)
+      #usamos las variables auxiliares
+    psolaux = c()# almacena las p obtenidas
+    qsolaux = c()# almacena las q obtenidas
+    pssolaux = c()# almacena los beneficios de
+    # ps obtenidos
+    xbsolaux = c()# almacena los beneficios de
+    # xb obtenidos
+    ps2solaux = c()# almacena los precios de
+    # ps obtenidos para c_ps=0 y c_xb=1
+    xb2solaux = c()# almacena los precios de
+    # xb obtenidos para c_ps=0 y c_xb=1
+    for (l_ps in lstps)# bucle para la l_ps
+        {   # obtenemos la solución
+            sol = solucion(l_ps = l_ps)
+            # almacenamos los datos que interesan
+            psolaux = c(psolaux, round(sol$p,
+                4))
+            qsolaux = c(qsolaux, round(sol$q,
+                4))
+            pssolaux = c(pssolaux,
+                round(sol$beneficiosesperados$ps,
+                  4))
+            xbsolaux = c(xbsolaux,
+                round(sol$beneficiosesperados$xb,
+                  4))
+            ps2solaux = c(ps2solaux,
+                round(sol$preciosps[2,
+                  2], 2))
+            xb2solaux = c(xb2solaux,
+                round(sol$preciosxb[2,
+                  2], 2))
+        }
+
+    
+    # devolvemos los diferentes dataframes
+    return(list('p' = psolaux, 'q' = qsolaux,
+        'beneficiosps' = pssolaux, 'beneficiosxb' = xbsolaux,
+        'preciosps' = ps2solaux, 'preciosxb' = xb2solaux))
+}
+```
+
+```{r}
+
+set.seed(2)
+n=100
+a=8
+b=2
+lista2 = sensitivity2(n,a,b)
+```
+
+```{r}
+#obtenemos todas las tablas
+
+mean(lista2[["p"]])
+
+mean(lista2[["q"]])
+```
+```{r}
+
+histo<-function(lst){
+  m=mean(lst)
+  mo=mlv(lst,method = 'shorth')
+  
+  q1=quantile(lst, 0.025)
+  q2=quantile(lst, 0.975)
+  
+  hist(lst,freq=FALSE)
+  abline(v =m,col = "blue",lwd = 2)
+  abline(v =q1,col = "red",lwd = 2)
+  abline(v =q2,col = "red",lwd = 2)
+  abline(v =mo,col = "green",lwd = 2)
+  return(paste(
+    'El cuantil para 0.025 es ' , as.character(q1),'
+    El cuantil para 0.975 es ',as.character(q2),'
+    La media es ' ,as.character(m),'
+    La moda es ' ,as.character(mo),'
+    La desviación típica es ',as.character(sd(lst))
+  ))
+}
+
+
+
+```
+
+
+```{r}
+# analizamos los beneficios de Playstation
+histo(lista2[['beneficiosps']])
+
+```
+
+```{r}
+# analizamos los beneficios de Xbox
+histo(lista2[['beneficiosxb']])
+
+```
+
+
+```{r}
+histo(lista2[['preciosps']])
+
+
+```
+
+```{r}
+histo(lista2[['preciosxb']])
+
+
+```
