@@ -385,8 +385,6 @@ Beneficios esperados de Xbox obtenidos para cada caso
 sol$beneficiosxb
 ```
 
-ANÁLISIS DE SENSIBILIDAD
-
 Función del análisis de la incertidumbre de $h_p(1,1)$
 ```{r}
 sensitivity2 <- function(n,a,b)
